@@ -39,3 +39,9 @@ li.widget-cta-menu ul li a {
 	font-weight: bold;
 	font-size:1.25em;
 }
+
+/* Style calls-to-action widget menu item link icons */
+li.widget-cta-menu ul li a span.fa {
+	font-size:0.8em;
+	margin-left: 0.25em;
+}

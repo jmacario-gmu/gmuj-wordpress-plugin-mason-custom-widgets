@@ -86,7 +86,8 @@ class menu_button_widget extends WP_Widget{
 					'container' => false,
 					'menu' => $instance['related_menu'],
 					'menu_class' => 'cta-menu',
-					'depth'=> '1'
+					'depth'=> '1',
+					'link_after' => ' <span class="fa fa-chevron-circle-right"></span>'
 				)
 			);
 
