@@ -1,0 +1,41 @@
+/* Mason custom widgets */
+
+/* Default and small screens */
+
+
+/* Style calls-to-action widget title */
+li.widget-cta-menu h3.widget-title {
+	margin-bottom:0;
+}
+
+/* Style calls-to-action widget sub-title*/
+li.widget-cta-menu p.widget-title-sub {
+	margin-top: 0.5em;
+	margin-bottom:2em;
+}
+
+
+/* Style calls-to-action widget menu */
+li.widget-cta-menu ul {
+	list-style-type: none;
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	margin: 0;
+}
+
+/* Style calls-to-action widget menu items */
+li.widget-cta-menu ul li {
+	margin: 1em !important;
+	background-color: #063;
+}
+
+/* Style calls-to-action widget menu item links */
+li.widget-cta-menu ul li a {
+	display: block;
+	padding: 2em 3em 0.5em 0.5em;
+	color: white;
+	text-decoration: none;
+	font-weight: bold;
+	font-size:1.25em;
+}
