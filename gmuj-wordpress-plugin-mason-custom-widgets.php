@@ -18,21 +18,27 @@ if (!defined('WPINC')) {
 	die;
 }
 
-
-// Include custom widget classes
-	// Call-to-action menu
-	include('php/classes/gmuj_widget_cta_menu.php');
-
-
 /**
  * Hook into the widgets_init action to load our custom widgets
  */
-add_action( 'widgets_init', 'gmuj_load_custom_widgets' );
-function gmuj_load_custom_widgets() {
+add_action( 'widgets_init', 'gmuj_load_and_register_custom_widgets' );
+function gmuj_load_and_register_custom_widgets() {
+
+	// Include widget traits
+		include('php/traits/color.php');
+		include('php/traits/image.php');
+
+	// Include custom widget classes
+		// Call-to-action menu
+		require('php/classes/gmuj_widget_cta_menu.php');
+		// About you section
+		require('php/classes/gmuj_widget_highlight_item.php');
 
 	// Register custom widgets
 		// Call-to-action menu
 		register_widget('gmuj_widget_cta_menu');
+		// Highlight item
+		register_widget('gmuj_widget_highlight_item');
 }
 
 /**

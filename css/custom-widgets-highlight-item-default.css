@@ -1,0 +1,27 @@
+/* Mason custom widgets */
+
+/* Highlight item */
+
+/* Default and small screens */
+
+
+/* Style highlight item */
+.widget-highlight-item {
+
+}
+
+/* Style highlight item title */
+.highlight-item-title {
+	text-align: center;
+}
+
+/* Style highlight item content wrapper */
+.highlight-item-content-wrapper {
+	display:flex;
+	justify-content: space-around;
+} 
+
+/* Style highlight item image */
+.highlight-item-image {
+
+}
