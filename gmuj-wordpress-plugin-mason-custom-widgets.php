@@ -21,7 +21,7 @@ if (!defined('WPINC')) {
 
 // Include custom widget classes
 	// Call-to-action menu
-	include('php/classes/widget_cta_menu.php');
+	include('php/classes/gmuj_widget_cta_menu.php');
 
 
 /**
@@ -32,7 +32,7 @@ function gmuj_load_custom_widgets() {
 
 	// Register custom widgets
 		// Call-to-action menu
-		register_widget('widget_cta_menu');
+		register_widget('gmuj_widget_cta_menu');
 }
 
 /**
