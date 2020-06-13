@@ -12,6 +12,8 @@
 
 /* Style highlight item title */
 .highlight-item-title {
+	margin-top: 0.5em;
+	padding-top: 0 !important;
 	text-align: center;
 }
 
