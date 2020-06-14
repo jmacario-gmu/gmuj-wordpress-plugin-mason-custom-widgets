@@ -79,7 +79,7 @@ class gmuj_widget_highlight_item extends WP_Widget_Custom_HTML {
 		$has_image = !empty($instance['image']);
 
 		// Begin widget output
-		echo '<li class="widget widget-highlight-item">';
+		echo $args['before_widget'];
 
 		// Title
 		echo '<h3 class="highlight-item-title">' . $instance['title'] . '</h3>';
@@ -98,7 +98,7 @@ class gmuj_widget_highlight_item extends WP_Widget_Custom_HTML {
 		echo '</div>';
 
 		// Finish widget output
-		echo '</li>';
+		echo $args['after_widget'];
     }
 
 	/**

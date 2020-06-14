@@ -33,7 +33,7 @@ class gmuj_widget_cta_menu extends WP_Widget{
 		if (isset($instance['related_menu'])) {
 
 			// Begin widget output
-			echo '<li class="widget widget-cta-menu">';
+			echo $args['before_widget'];
 
 			// Output widget title
 			echo '<h3 class="widget-title">'.$instance['title'].'</h3>';
@@ -53,7 +53,7 @@ class gmuj_widget_cta_menu extends WP_Widget{
 			);
 
 			// Finish widget output
-			echo '</li>';
+			echo $args['after_widget'];
 
 		}
 
