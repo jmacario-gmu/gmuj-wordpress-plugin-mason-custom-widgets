@@ -8,14 +8,27 @@
 /* Style highlight item title */
 li.widget_gmuj_widget_highlight_item h3.widget-title {
 	margin-top: 0.5em;
+	margin-bottom: 1em;
 	padding-top: 0 !important;
 	text-align: center;
+}
+
+/* Style highlight item title underline */
+li.widget_gmuj_widget_highlight_item h3.widget-title::after {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0.5em;
+    height: 5px;
+    content: "";
+    background-color: #063;
+    width: 40%;
 }
 
 /* Style highlight item content wrapper */
 li.widget_gmuj_widget_highlight_item div.highlight-item-content-wrapper {
 	display:flex;
-	justify-content: space-around;
+	justify-content: space-between;
 } 
 
 /* Style highlight item image */
