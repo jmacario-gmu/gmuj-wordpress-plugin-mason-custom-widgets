@@ -9,7 +9,6 @@
  * custom widget class definition: highlight item
  */
 class gmuj_widget_highlight_item extends WP_Widget_Custom_HTML {
-	use Color_Widget;
 	use Image_Widget;
 
 	/**

@@ -25,7 +25,6 @@ add_action( 'widgets_init', 'gmuj_load_and_register_custom_widgets' );
 function gmuj_load_and_register_custom_widgets() {
 
 	// Include widget traits
-		include('php/traits/color.php');
 		include('php/traits/image.php');
 
 	// Include custom widget classes
