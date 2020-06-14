@@ -81,8 +81,10 @@ class gmuj_widget_highlight_item extends WP_Widget_Custom_HTML {
 		// Begin widget output
 		echo $args['before_widget'];
 
-		// Title
-		echo '<h3 class="highlight-item-title">' . $instance['title'] . '</h3>';
+		// Output widget title
+		echo $args['before_title'];
+		echo $instance['title'];
+		echo $args['after_title'];
 		
 		// Widget content wrapper
 		echo '<div class="highlight-item-content-wrapper">';

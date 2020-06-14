@@ -5,25 +5,20 @@
 /* Default and small screens */
 
 
-/* Style highlight item */
-.widget-highlight-item {
-
-}
-
 /* Style highlight item title */
-.highlight-item-title {
+li.widget_gmuj_widget_highlight_item h3.widget-title {
 	margin-top: 0.5em;
 	padding-top: 0 !important;
 	text-align: center;
 }
 
 /* Style highlight item content wrapper */
-.highlight-item-content-wrapper {
+li.widget_gmuj_widget_highlight_item div.highlight-item-content-wrapper {
 	display:flex;
 	justify-content: space-around;
 } 
 
 /* Style highlight item image */
-.highlight-item-image {
+li.widget_gmuj_widget_highlight_item img.highlight-item-image {
 
 }

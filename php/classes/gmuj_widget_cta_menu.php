@@ -36,7 +36,9 @@ class gmuj_widget_cta_menu extends WP_Widget{
 			echo $args['before_widget'];
 
 			// Output widget title
-			echo '<h3 class="widget-title">'.$instance['title'].'</h3>';
+			echo $args['before_title'];
+			echo $instance['title'];
+			echo $args['after_title'];
 
 			// Output widget sub-title
 			echo '<p class="widget-title-sub">'.$instance['title_sub'].'</p>';
