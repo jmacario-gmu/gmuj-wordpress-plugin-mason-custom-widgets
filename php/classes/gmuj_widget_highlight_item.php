@@ -9,7 +9,7 @@
  * custom widget class definition: highlight item
  */
 class gmuj_widget_highlight_item extends WP_Widget_Custom_HTML {
-	use Image_Widget;
+	use gmuj_widget_image;
 
 	/**
 	 * function to instantiate widget class
@@ -93,7 +93,7 @@ class gmuj_widget_highlight_item extends WP_Widget_Custom_HTML {
 		echo '<div class="highlight-item-content">' . $content . '</div>';
 		// Image
 		if ($has_image) {
-			echo $this->image_render($instance, "highlight-item-image");
+			echo $this->gmuj_widget_image_render($instance, "highlight-item-image");
 		}
 
 		// End widget content wrapper
@@ -107,9 +107,12 @@ class gmuj_widget_highlight_item extends WP_Widget_Custom_HTML {
 	 * function to display widget edit form
 	 */
 	public function form($instance) {
+
+		// Display standard custom HTML widget form
 		parent::form($instance);
-		$this->image_script();
-		$this->image_form_item($instance, 'image', 'Image: ', true);
+		// Display custom image trait form
+		$this->gmuj_widget_image_form_item($instance, 'image', 'Image: ', true);
+
 	}
 	 
 	/**
@@ -117,9 +120,11 @@ class gmuj_widget_highlight_item extends WP_Widget_Custom_HTML {
 	 */
 	public function update($new_instance,$old_instance) {
 
+		// Update standard custom HTML widget fields
 		$instance = parent::update($new_instance, $old_instance);
 
-		$instance = array_merge($instance,$this->image_update($new_instance,$old_instance));
+		// Update custom image trait fields
+		$instance = array_merge($instance,$this->gmuj_widget_image_update($new_instance,$old_instance));
 
 		return $instance;
 

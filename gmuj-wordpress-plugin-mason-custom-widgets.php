@@ -25,7 +25,7 @@ add_action( 'widgets_init', 'gmuj_load_and_register_custom_widgets' );
 function gmuj_load_and_register_custom_widgets() {
 
 	// Include widget traits
-		include('php/traits/image.php');
+		include('php/traits/gmuj_widget_image.php');
 
 	// Include custom widget classes
 		// Call-to-action menu
@@ -41,15 +41,42 @@ function gmuj_load_and_register_custom_widgets() {
 }
 
 /**
- * Enqueue styles related to our custom widgets
+ * Enqueue public styles related to our custom widgets
  */
-add_action( 'wp_enqueue_scripts', 'gmuj_custom_widgets_enqueue_styles' );
+add_action('wp_enqueue_scripts','gmuj_custom_widgets_enqueue_styles');
 function gmuj_custom_widgets_enqueue_styles() {
 
-	// Enqueue the plugin stylesheet
+	// Enqueue the plugin stylesheets
+
+	// Custom widgets stylesheet
 	wp_enqueue_style(
 		'gmuj_custom_widgets', //stylesheet name
 		plugin_dir_url(__FILE__) . 'css/custom-widgets.css' //path to stylesheet
 	);
+
+}
+
+/**
+ * Enqueue admin styles related to our custom widgets
+ */
+add_action('admin_enqueue_scripts','gmuj_custom_widgets_enqueue_styles_admin');
+function gmuj_custom_widgets_enqueue_styles_admin() {
+
+	// Enqueue the plugin admin stylesheets
+	wp_enqueue_style(
+		'gmuj_widget_field_image_select', //stylesheet name
+		plugin_dir_url(__FILE__) . 'css/admin.css' //path to stylesheet
+	);
+
+}
+
+/**
+ * Enqueue admin javascript related to our custom widgets
+ */
+add_action('admin_enqueue_scripts','gmuj_custom_widgets_enqueue_scripts_admin');
+function gmuj_custom_widgets_enqueue_scripts_admin() {
+
+	// Enqueue the plugin admin javascripts
+	wp_enqueue_script( 'gmuj_widget_image', plugin_dir_url( __FILE__ ) . 'js/gmuj_widget_image.js' );
 
 }
