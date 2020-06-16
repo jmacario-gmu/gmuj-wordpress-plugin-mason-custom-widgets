@@ -1,4 +1,8 @@
 /* Admin styles */
 
+
 /* Widget image select field */
 @import 'admin-widget-field-image-select.css';
+
+/* Project list widget */
+@import 'admin-widget-project-list.css';

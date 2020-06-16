@@ -30,14 +30,18 @@ function gmuj_load_and_register_custom_widgets() {
 	// Include custom widget classes
 		// Call-to-action menu
 		require('php/classes/gmuj_widget_cta_menu.php');
-		// About you section
+		// Highlight item
 		require('php/classes/gmuj_widget_highlight_item.php');
+		// Project list
+		require('php/classes/gmuj_widget_project_list.php');
 
 	// Register custom widgets
 		// Call-to-action menu
 		register_widget('gmuj_widget_cta_menu');
 		// Highlight item
 		register_widget('gmuj_widget_highlight_item');
+		// Projects
+		register_widget('gmuj_widget_project_list');
 }
 
 /**
