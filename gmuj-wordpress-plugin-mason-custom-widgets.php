@@ -18,6 +18,11 @@ if (!defined('WPINC')) {
 	die;
 }
 
+
+// Include custom functions for this plugin
+	// Color
+	require(plugin_dir_path(__FILE__). '/php/functions-color.php');
+
 /**
  * Hook into the widgets_init action to load our custom widgets
  */

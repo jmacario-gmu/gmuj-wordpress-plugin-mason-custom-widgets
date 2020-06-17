@@ -134,10 +134,13 @@ class gmuj_widget_recent_posts extends WP_Widget {
                             //the_post_thumbnail(); 
                             the_post_thumbnail('post-thumbnail', ['class' => 'widget_gmuj_widget_project_list_item_image']);
                         } else {
-                            // If not, get the path of the default image
-                            $image=plugins_url().'/gmuj-wordpress-plugin-mason-custom-widgets/images/mason-default-image-640x480.png';
-                            // Output default image
-                            echo "<img class='widget_gmuj_widget_project_list_item_image' src='". $image. "' />";
+                            // If not, get the path of a default image
+                                // First, choose a random brand color
+                                $random_color=gmuj_random_brand_color();
+                                // Next, generate the image file path using the random color
+                                $image=plugins_url().'/gmuj-wordpress-plugin-mason-custom-widgets/images/mason-default-image-'.$random_color.'-640x480.png';
+                                // Output the HTML image tag
+                                echo "<img class='widget_gmuj_widget_project_list_item_image' src='". $image. "' />";
                         }
 
                     // Output post title
