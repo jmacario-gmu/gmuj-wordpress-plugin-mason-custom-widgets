@@ -1,0 +1,95 @@
+/* Mason custom widgets */
+
+/* Recent posts */
+
+/* Default and small screens */
+
+/* Style project list title */
+li.widget_gmuj_widget_recent_posts h3.widget-title {
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+    padding-top: 0 !important;
+    text-align: center;
+}
+
+/* Style project list container */
+li.widget_gmuj_widget_recent_posts .widget_gmuj_widget_project_list_grid_container {
+    display: grid;
+    grid-gap: 0.5em;
+    grid-template-columns: repeat(auto-fit, minmax(255px,1fr));
+    text-align: center;
+}
+
+/* Style project links */
+li.widget_gmuj_widget_recent_posts a.widget_gmuj_widget_project_list_item {
+    text-align: center;
+    box-shadow: 0 2px 2px rgba(0,0,0,0.15);
+    transition: all 0.3s ease-in-out;
+    background-color: white;
+    display: block;
+    max-width: 255px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px;
+    margin: 0 auto;
+    text-decoration: none;
+}
+
+/* Style project links on hover */
+li.widget_gmuj_widget_recent_posts a.widget_gmuj_widget_project_list_item:hover {
+    box-shadow: 0 2px 15px 2px rgba(0,0,0,0.15);
+}
+
+/* Style project image */
+li.widget_gmuj_widget_recent_posts .widget_gmuj_widget_project_list_item_image {
+    width: 255px;
+    height: 190px;
+    margin-bottom: 1em;
+}
+
+/* Style project name heading */
+li.widget_gmuj_widget_recent_posts h4.project-name {
+    min-height:2em;
+    margin: 1em auto;
+    padding-bottom: 1em;
+    font-size:1.1em;
+}
+
+/* Style project name heading on hover */
+li.widget_gmuj_widget_recent_posts h4.project-name:hover {
+    text-decoration: underline;
+}
+
+/* Style project description */
+li.widget_gmuj_widget_recent_posts .project-description {
+    text-align: center !important;
+    position: absolute;
+    top: -200px;
+    left: 0;
+    width: 100%;
+    height: 190px;
+    padding: 15px;
+    opacity: 0;
+    font-size: 0.9em;
+    line-height: 1.5em;
+    text-align: left;
+    -webkit-transition: all 500ms;
+    transition: all 500ms;
+    transition-property: all;
+    transition-duration: 500ms;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+}
+
+/* Style project description for when the PROJECT is hovered-over */
+li.widget_gmuj_widget_recent_posts a.widget_gmuj_widget_project_list_item:hover .project-description {
+    top: 0px;
+    background: rgba(34, 34, 34, 0.8) none repeat scroll 0% 0% !important;
+    color: #fff;
+    font-weight:bold;
+    text-align: center;
+    cursor: inherit;
+    opacity: 100;
+}
