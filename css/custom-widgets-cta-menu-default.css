@@ -1,11 +1,13 @@
 /* Mason custom widgets */
 
+/* Call-to-action menu */
+
 /* Default and small screens */
 
 
 /* Style calls-to-action widget title */
 li.widget_gmuj_widget_call_to_action_menu h3.widget-title {
-	margin-bottom:0;
+
 }
 
 /* Style calls-to-action widget sub-title*/
