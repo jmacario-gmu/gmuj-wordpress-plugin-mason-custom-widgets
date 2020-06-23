@@ -41,6 +41,8 @@ function gmuj_load_and_register_custom_widgets() {
 		require('php/classes/gmuj_widget_project_list.php');
 		// Recent posts
 		require('php/classes/gmuj_widget_recent_posts.php');
+		// Site alert ribbon
+		require('php/classes/gmuj_widget_alert_ribbon.php');
 
 	// Register custom widgets
 		// Call-to-action menu
@@ -51,6 +53,8 @@ function gmuj_load_and_register_custom_widgets() {
 		register_widget('gmuj_widget_project_list');
 		// Recent posts
 		register_widget('gmuj_widget_recent_posts');
+		// Alert Ribbon
+		register_widget('gmuj_widget_alert_ribbon');
 
 }
 
@@ -67,6 +71,9 @@ function gmuj_custom_widgets_enqueue_styles() {
 		'gmuj_custom_widgets', //stylesheet name
 		plugin_dir_url(__FILE__) . 'css/custom-widgets.css' //path to stylesheet
 	);
+	
+	// javascript to store alert ribbon open/closed state
+	wp_enqueue_script( 'gmuj_widget_alert_ribbon', plugin_dir_url( __FILE__ ) . 'js/gmuj_widget_alert_ribbon.js', array( 'jquery' ) );
 
 }
 
@@ -101,6 +108,6 @@ add_action('admin_enqueue_scripts','gmuj_custom_widgets_enqueue_scripts_admin');
 function gmuj_custom_widgets_enqueue_scripts_admin() {
 
 	// Enqueue the plugin admin javascripts
-	wp_enqueue_script( 'gmuj_widget_image', plugin_dir_url( __FILE__ ) . 'js/gmuj_widget_image.js' );
+	wp_enqueue_script( 'gmuj_widget_image', plugin_dir_url(__FILE__) . 'js/gmuj_widget_image.js' );
 
 }

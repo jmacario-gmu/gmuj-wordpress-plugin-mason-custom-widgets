@@ -11,3 +11,6 @@
 
 /* Recent posts */
 @import 'custom-widgets-recent-posts.css';
+
+/* Alert ribbon */
+@import 'custom-widgets-alert-ribbon.css';
