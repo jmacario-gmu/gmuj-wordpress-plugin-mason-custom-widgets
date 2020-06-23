@@ -18,6 +18,11 @@ if (!defined('WPINC')) {
 	die;
 }
 
+
+// Include custom functions for this plugin
+	// Color
+	require(plugin_dir_path(__FILE__). '/php/functions-color.php');
+
 /**
  * Hook into the widgets_init action to load our custom widgets
  */
@@ -34,6 +39,8 @@ function gmuj_load_and_register_custom_widgets() {
 		require('php/classes/gmuj_widget_highlight_item.php');
 		// Project list
 		require('php/classes/gmuj_widget_project_list.php');
+		// Recent posts
+		require('php/classes/gmuj_widget_recent_posts.php');
 		// Site alert ribbon
 		require('php/classes/gmuj_widget_alert_ribbon.php');
 
@@ -44,8 +51,11 @@ function gmuj_load_and_register_custom_widgets() {
 		register_widget('gmuj_widget_highlight_item');
 		// Projects
 		register_widget('gmuj_widget_project_list');
+		// Recent posts
+		register_widget('gmuj_widget_recent_posts');
 		// Alert Ribbon
 		register_widget('gmuj_widget_alert_ribbon');
+
 }
 
 /**
@@ -54,7 +64,7 @@ function gmuj_load_and_register_custom_widgets() {
 add_action('wp_enqueue_scripts','gmuj_custom_widgets_enqueue_styles');
 function gmuj_custom_widgets_enqueue_styles() {
 
-	// Enqueue the plugin stylesheets
+	// Enqueue the plugin public stylesheets
 
 	// Custom widgets stylesheet
 	wp_enqueue_style(
@@ -64,6 +74,16 @@ function gmuj_custom_widgets_enqueue_styles() {
 	
 	// javascript to store alert ribbon open/closed state
 	wp_enqueue_script( 'gmuj_widget_alert_ribbon', plugin_dir_url( __FILE__ ) . 'js/gmuj_widget_alert_ribbon.js', array( 'jquery' ) );
+
+}
+
+/**
+ * Enqueue public javascript related to our custom widgets
+ */
+add_action('wp_enqueue_scripts','gmuj_custom_widgets_enqueue_scripts');
+function gmuj_custom_widgets_enqueue_scripts() {
+
+	// Enqueue the plugin public javascripts
 
 }
 

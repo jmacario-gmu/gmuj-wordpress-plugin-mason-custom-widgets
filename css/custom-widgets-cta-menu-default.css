@@ -1,17 +1,26 @@
 /* Mason custom widgets */
 
+/* Call-to-action menu */
+
 /* Default and small screens */
 
 
 /* Style calls-to-action widget title */
 li.widget_gmuj_widget_call_to_action_menu h3.widget-title {
-	margin-bottom:0;
+
 }
 
 /* Style calls-to-action widget sub-title*/
 li.widget_gmuj_widget_call_to_action_menu p.widget-title-sub {
-	margin-top: 0.5em;
+}
+
+ul.sidebar-homepage:not(#sidebar-homepage-banner) li.widget_gmuj_widget_call_to_action_menu p.widget-title-sub, 
+div.entry-content li.widget_gmuj_widget_call_to_action_menu p.widget-title-sub {
+	margin-top: -1em;
 	margin-bottom:2em;
+	text-align:center;
+	font-color:#006633 !important;
+	font-size:1.3em;
 }
 
 
