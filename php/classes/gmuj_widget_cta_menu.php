@@ -35,13 +35,17 @@ class gmuj_widget_cta_menu extends WP_Widget{
 			// Begin widget output
 			echo $args['before_widget'];
 
-			// Output widget title
-			echo $args['before_title'];
-			echo $instance['title'];
-			echo $args['after_title'];
+			// Output widget title, if it is not empty
+			if (!empty($instance['title'])) {
+				echo $args['before_title'];
+				echo $instance['title'];
+				echo $args['after_title'];
+			}
 
-			// Output widget sub-title
-			echo '<p class="widget-title-sub">'.$instance['title_sub'].'</p>';
+			// Output widget sub-title, if it is not empty
+			if (!empty($instance['title_sub'])) {
+				echo '<p class="widget-title-sub">'.$instance['title_sub'].'</p>';
+			}
 
 			// Output call-to-action menu
 			wp_nav_menu(
