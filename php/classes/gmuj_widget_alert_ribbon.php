@@ -1,12 +1,12 @@
 <?php
 
 /**
- * php file which defines custom widget class: call-to-action menu
+ * php file which defines custom widget class: alert ribbon
  */
 
 
 /**
- * custom widget class definition: call-to-action menu
+ * custom widget class definition: alert ribbon
  */
 class gmuj_widget_alert_ribbon extends WP_Widget{
 
@@ -28,35 +28,55 @@ class gmuj_widget_alert_ribbon extends WP_Widget{
 	 * function to output widget front-end
 	 */
 	public function widget($args,$instance) {
-		//print_r($args);
-		//echo($args['widget_id']);
 
+		// If the 'display alert' box is checked (i.e. if this alert should be displayed publicly...
 		if($instance['alert_display'] == 'true'){
+
+			// Begin widget output
 			echo $args['before_widget'];
+
 			// Checkbox element used to toggle alert between open and closed states
 			echo sprintf('<input class="gmuj_alert_ribbon_toggle" id="%s_toggle" type="checkbox">',$args['widget_id']);
 			echo sprintf('<label class="gmuj_alert_ribbon_toggle_label" for="%s_toggle"><span>%s</span></label>',$args['widget_id'],$instance['alert_title']);
 
-			// Widget item content
+			// Display alert item
 			echo '<div class="gmuj_widget_alert_ribbon_item">';	
-			echo '<div class="gmuj_widget_alert_ribbon_item_content">';		
+			echo '<div class="gmuj_widget_alert_ribbon_item_content">';
+
+			// Output widget title
 			echo $args['before_title'];
 			echo $instance['alert_title'];
 			echo $args['after_title'];
+
 			echo '<div class="gmuj_widget_alert_ribbon_summary">';
+
+			// Alert summary
 			echo $instance['alert_summary'];
-			if(!empty($instance['alert_link'])) echo sprintf(' <a href="%s">Read more</a>',$instance['alert_link']);
-			echo '</div>';
-			echo '</div>';
-			echo '</div>';
+
+			// Read more link
+			// If we have a link...
+			if(!empty($instance['alert_link'])) {
+				// Display the link
+				echo sprintf('<a class="gmuj_widget_alert_ribbon_link" href="%s">Read more</a>',$instance['alert_link']);
+			}
+
+			echo '</div><!--/.gmuj_widget_alert_ribbon_summary-->';
+
+			echo '</div><!--/.gmuj_widget_alert_ribbon_item_content-->';
+
+			echo '</div><!--/.gmuj_widget_alert_ribbon_item-->';
+
+			// Finish widget output
 			echo $args['after_widget'];
+
 		}
+
 	}
 
 	/**
 	 * function to display widget edit form
 	 */
-	public function form( $instance ) {
+	public function form($instance) {
 
 		// Get existing field values and set default values if needed
 			// Alert title
@@ -112,6 +132,7 @@ class gmuj_widget_alert_ribbon extends WP_Widget{
 	 * Summary: function to update widget data
 	 */
 	public function update( $new_instance, $old_instance ) {
+
 		// Sanitize and store widget fields
 			// Title field
 			$instance['alert_title'] = strip_tags($new_instance['alert_title']);

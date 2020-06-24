@@ -1,8 +1,10 @@
 /**
- * JS file for connecting the alert titles to the checkboxes that control open/closed states
+ * JS file to support the alert widget
  */
 
 jQuery(document).ready(function ($) {
+
+    // When the alert title is clicked-on, toggle the checkbox which controls whether the alert details are displayed
     $('.gmuj_widget_alert_ribbon_item h3').click(function(){
         toggleState($(this));
     });
@@ -14,4 +16,5 @@ jQuery(document).ready(function ($) {
             targetCheckbox.prop('checked',true);
         }
     }
+
 });

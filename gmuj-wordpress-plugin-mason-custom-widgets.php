@@ -5,7 +5,7 @@
  */
 
 /**
- * Plugin Name:       Mason WordPress: Custom Widgets
+ * Plugin Name:       Mason Custom Widgets
  * Author:            Jan Macario
  * Plugin URI:        https://github.com/jmacario-gmu/gmuj-wordpress-plugin-mason-custom-widgets
  * Description:       Mason WordPress plugin which implements Mason-specific custom widgets.
@@ -72,9 +72,6 @@ function gmuj_custom_widgets_enqueue_styles() {
 		plugin_dir_url(__FILE__) . 'css/custom-widgets.css' //path to stylesheet
 	);
 	
-	// javascript to store alert ribbon open/closed state
-	wp_enqueue_script( 'gmuj_widget_alert_ribbon', plugin_dir_url( __FILE__ ) . 'js/gmuj_widget_alert_ribbon.js', array( 'jquery' ) );
-
 }
 
 /**
@@ -84,6 +81,9 @@ add_action('wp_enqueue_scripts','gmuj_custom_widgets_enqueue_scripts');
 function gmuj_custom_widgets_enqueue_scripts() {
 
 	// Enqueue the plugin public javascripts
+
+	// javascript to store alert ribbon open/closed state
+	wp_enqueue_script('gmuj_widget_alert_ribbon', plugin_dir_url(__FILE__) . 'js/gmuj_widget_alert_ribbon.js', array('jquery'));
 
 }
 
