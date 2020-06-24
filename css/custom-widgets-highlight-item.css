@@ -5,5 +5,8 @@
 /* Default and small screens */
 @import 'custom-widgets-highlight-item-default.css';
 
+/* 500+ pixels */
+@import 'custom-widgets-highlight-item-500+.css' screen and (min-width: 500px);
+
 /* 700+ pixels */
 @import 'custom-widgets-highlight-item-700+.css' screen and (min-width: 700px);

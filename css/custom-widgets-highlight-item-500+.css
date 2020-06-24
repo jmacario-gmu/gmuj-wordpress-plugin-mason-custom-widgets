@@ -2,25 +2,25 @@
 
 /* Highlight item */
 
-/* Default and small screens */
+/* 500+ pixels */
 
-
-/* Style highlight item title */
-.widget_gmuj_widget_highlight_item h3.widget-title {
-
-}
 
 /* Style highlight item content wrapper */
 .widget_gmuj_widget_highlight_item div.highlight-item-content-wrapper {
-
-}
+	display:flex;
+	justify-content: space-between;
+	align-items: flex-start;
+} 
 
 /* Style highlight item content div */
 .widget_gmuj_widget_highlight_item div.highlight-item-content {
-	margin-bottom:1em;
-}
+	margin-right:1em;
+} 
 
 /* Style highlight item image */
 .widget_gmuj_widget_highlight_item img.highlight-item-image {
-
+	max-width: 40%;
+    object-fit: contain;
+    width: auto;
+    height: auto;	
 }
