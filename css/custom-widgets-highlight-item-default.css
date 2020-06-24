@@ -6,17 +6,17 @@
 
 
 /* Style highlight item title */
-li.widget_gmuj_widget_highlight_item h3.widget-title {
+.widget_gmuj_widget_highlight_item h3.widget-title {
 
 }
 
 /* Style highlight item content wrapper */
-li.widget_gmuj_widget_highlight_item div.highlight-item-content-wrapper {
+.widget_gmuj_widget_highlight_item div.highlight-item-content-wrapper {
 	display:flex;
 	justify-content: space-between;
 } 
 
 /* Style highlight item image */
-li.widget_gmuj_widget_highlight_item img.highlight-item-image {
+.widget_gmuj_widget_highlight_item img.highlight-item-image {
 
 }

@@ -6,12 +6,12 @@
 
 
 /* Style calls-to-action widget title */
-li.widget_gmuj_widget_call_to_action_menu h3.widget-title {
+.widget_gmuj_widget_call_to_action_menu h3.widget-title {
 
 }
 
 /* Style calls-to-action widget sub-title*/
-li.widget_gmuj_widget_call_to_action_menu p.widget-title-sub {
+.widget_gmuj_widget_call_to_action_menu p.widget-title-sub {
 }
 
 ul.sidebar-homepage:not(#sidebar-homepage-banner) li.widget_gmuj_widget_call_to_action_menu p.widget-title-sub, 
@@ -25,7 +25,7 @@ div.entry-content li.widget_gmuj_widget_call_to_action_menu p.widget-title-sub {
 
 
 /* Style calls-to-action widget menu */
-li.widget_gmuj_widget_call_to_action_menu ul {
+.widget_gmuj_widget_call_to_action_menu ul {
 	list-style-type: none;
 	display: flex;
 	justify-content: space-around;
@@ -34,13 +34,13 @@ li.widget_gmuj_widget_call_to_action_menu ul {
 }
 
 /* Style calls-to-action widget menu items */
-li.widget_gmuj_widget_call_to_action_menu ul li {
+.widget_gmuj_widget_call_to_action_menu ul li {
 	margin: 1em !important;
 	background-color: #063;
 }
 
 /* Style calls-to-action widget menu item links */
-li.widget_gmuj_widget_call_to_action_menu ul li a {
+.widget_gmuj_widget_call_to_action_menu ul li a {
 	display: block;
 	padding: 2em 3em 0.5em 0.5em;
 	color: white;
@@ -50,7 +50,7 @@ li.widget_gmuj_widget_call_to_action_menu ul li a {
 }
 
 /* Style calls-to-action widget menu item link icons */
-li.widget_gmuj_widget_call_to_action_menu ul li a span.fa {
+.widget_gmuj_widget_call_to_action_menu ul li a span.fa {
 	font-size:0.8em;
 	margin-left: 0.25em;
 }

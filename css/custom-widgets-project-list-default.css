@@ -6,12 +6,12 @@
 
 
 /* Style project list title */
-li.widget_gmuj_widget_project_list h3.widget-title {
+.widget_gmuj_widget_project_list h3.widget-title {
 
 }
 
 /* Style project list container */
-li.widget_gmuj_widget_project_list .widget_gmuj_widget_project_list_grid_container {
+.widget_gmuj_widget_project_list .widget_gmuj_widget_project_list_grid_container {
     display: grid;
     grid-gap: 0.5em;
     grid-template-columns: repeat(auto-fit, minmax(255px,1fr));
@@ -19,7 +19,7 @@ li.widget_gmuj_widget_project_list .widget_gmuj_widget_project_list_grid_contain
 }
 
 /* Style project links */
-li.widget_gmuj_widget_project_list a.widget_gmuj_widget_project_list_item {
+.widget_gmuj_widget_project_list a.widget_gmuj_widget_project_list_item {
     text-align: center;
     box-shadow: 0 2px 2px rgba(0,0,0,0.15);
     transition: all 0.3s ease-in-out;
@@ -34,19 +34,19 @@ li.widget_gmuj_widget_project_list a.widget_gmuj_widget_project_list_item {
 }
 
 /* Style project links on hover */
-li.widget_gmuj_widget_project_list a.widget_gmuj_widget_project_list_item:hover {
+.widget_gmuj_widget_project_list a.widget_gmuj_widget_project_list_item:hover {
     box-shadow: 0 2px 15px 2px rgba(0,0,0,0.15);
 }
 
 /* Style project image */
-li.widget_gmuj_widget_project_list .widget_gmuj_widget_project_list_item_image {
+.widget_gmuj_widget_project_list .widget_gmuj_widget_project_list_item_image {
     width: 255px;
     height: 190px;
     margin-bottom: 1em;
 }
 
 /* Style project name heading */
-li.widget_gmuj_widget_project_list h4.project-name {
+.widget_gmuj_widget_project_list h4.project-name {
     min-height:2em;
     margin: 1em auto;
     padding-bottom: 1em;
@@ -54,12 +54,12 @@ li.widget_gmuj_widget_project_list h4.project-name {
 }
 
 /* Style project name heading on hover */
-li.widget_gmuj_widget_project_list h4.project-name:hover {
+.widget_gmuj_widget_project_list h4.project-name:hover {
     text-decoration: underline;
 }
 
 /* Style project description */
-li.widget_gmuj_widget_project_list .project-description {
+.widget_gmuj_widget_project_list .project-description {
     text-align: center !important;
     position: absolute;
     top: -200px;
@@ -82,7 +82,7 @@ li.widget_gmuj_widget_project_list .project-description {
 }
 
 /* Style project description for when the PROJECT is hovered-over */
-li.widget_gmuj_widget_project_list a.widget_gmuj_widget_project_list_item:hover .project-description {
+.widget_gmuj_widget_project_list a.widget_gmuj_widget_project_list_item:hover .project-description {
     top: 0px;
     background: rgba(34, 34, 34, 0.8) none repeat scroll 0% 0% !important;
     color: #fff;

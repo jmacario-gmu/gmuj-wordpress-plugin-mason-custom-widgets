@@ -6,11 +6,11 @@
 
 
 /* Style highlight item title underline */
-li.widget_gmuj_widget_highlight_item h3.widget-title::after {
+.widget_gmuj_widget_highlight_item h3.widget-title::after {
     width: 20%;
 }
 
 /* Style highlight item content wrapper */
-li.widget_gmuj_widget_highlight_item div.highlight-item-content-wrapper {
+.widget_gmuj_widget_highlight_item div.highlight-item-content-wrapper {
     justify-content: space-around;
 } 
