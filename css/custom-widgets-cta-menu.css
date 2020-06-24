@@ -4,3 +4,12 @@
 
 /* Default and small screens */
 @import 'custom-widgets-cta-menu-default.css';
+
+/* 500+ pixels */
+@import 'custom-widgets-cta-menu-500+.css' screen and (min-width: 500px);
+
+/* 700+ pixels */
+@import 'custom-widgets-cta-menu-700+.css' screen and (min-width: 700px);
+
+/* 1000+ pixels */
+@import 'custom-widgets-cta-menu-1000+.css' screen and (min-width: 1000px);

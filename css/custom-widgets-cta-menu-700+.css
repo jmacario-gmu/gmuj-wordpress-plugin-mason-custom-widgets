@@ -1,0 +1,11 @@
+/* Mason custom widgets */
+
+/* Call-to-action menu */
+
+/* 700+ pixels */
+
+
+/* Style calls-to-action widget menu item links */
+.widget_gmuj_widget_call_to_action_menu ul li a {
+	padding: 0.5em 1em;
+}

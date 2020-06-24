@@ -23,13 +23,9 @@ div.entry-content li.widget_gmuj_widget_call_to_action_menu p.widget-title-sub {
 	font-size:1.3em;
 }
 
-
 /* Style calls-to-action widget menu */
 .widget_gmuj_widget_call_to_action_menu ul {
 	list-style-type: none;
-	display: flex;
-	justify-content: space-around;
-	flex-wrap: wrap;
 	margin: 0;
 }
 
@@ -42,7 +38,8 @@ div.entry-content li.widget_gmuj_widget_call_to_action_menu p.widget-title-sub {
 /* Style calls-to-action widget menu item links */
 .widget_gmuj_widget_call_to_action_menu ul li a {
 	display: block;
-	padding: 2em 3em 0.5em 0.5em;
+	padding: 0.5em;
+	word-break: normal;
 	color: white;
 	text-decoration: none;
 	font-weight: bold;
