@@ -14,6 +14,7 @@
 .widget_gmuj_widget_call_to_action_menu p.widget-title-sub {
 }
 
+/* Style calls-to-action widget sub-titles, other than when used on the homepage banner */
 ul.sidebar-homepage:not(#sidebar-homepage-banner) li.widget_gmuj_widget_call_to_action_menu p.widget-title-sub, 
 div.entry-content li.widget_gmuj_widget_call_to_action_menu p.widget-title-sub {
 	margin-top: -1em;
