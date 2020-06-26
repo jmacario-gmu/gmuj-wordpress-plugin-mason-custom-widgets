@@ -86,18 +86,13 @@ class gmuj_widget_highlight_item extends WP_Widget_Custom_HTML {
 		echo $instance['title'];
 		echo $args['after_title'];
 		
-		// Widget content wrapper
-		echo '<div class="highlight-item-content-wrapper">';
-
-		// Widget content
-		echo '<div class="highlight-item-content">' . $content . '</div>';
-		// Image
+		// Output image, if one is specified
 		if ($has_image) {
 			echo $this->gmuj_widget_image_render($instance, "highlight-item-image");
 		}
 
-		// End widget content wrapper
-		echo '</div>';
+		// Output widget content
+		echo $content;
 
 		// Finish widget output
 		echo $args['after_widget'];

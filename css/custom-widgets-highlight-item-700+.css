@@ -5,12 +5,8 @@
 /* 700+ pixels */
 
 
-/* Style highlight item title underline */
-.widget_gmuj_widget_highlight_item h3.widget-title::after {
-    width: 20%;
+/* Style highlight item image */
+.widget_gmuj_widget_highlight_item img.highlight-item-image {
+    margin-left: 4em;
+    margin-right: 1em;
 }
-
-/* Style highlight item content wrapper */
-.widget_gmuj_widget_highlight_item div.highlight-item-content-wrapper {
-    justify-content: space-around;
-} 

@@ -5,22 +5,9 @@
 /* Default and small screens */
 
 
-/* Style highlight item title */
-.widget_gmuj_widget_highlight_item h3.widget-title {
-
-}
-
-/* Style highlight item content wrapper */
-.widget_gmuj_widget_highlight_item div.highlight-item-content-wrapper {
-
-}
-
-/* Style highlight item content div */
-.widget_gmuj_widget_highlight_item div.highlight-item-content {
-	margin-bottom:1em;
-}
-
 /* Style highlight item image */
 .widget_gmuj_widget_highlight_item img.highlight-item-image {
-
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 1em;
 }
