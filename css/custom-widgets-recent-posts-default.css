@@ -4,21 +4,21 @@
 
 /* Default and small screens */
 
-/* Style project list title */
+/* Style recent posts list title */
 .widget_gmuj_widget_recent_posts h3.widget-title {
 
 }
 
-/* Style project list container */
-.widget_gmuj_widget_recent_posts .widget_gmuj_widget_project_list_grid_container {
+/* Style highlight list container */
+.widget_gmuj_widget_recent_posts .widget_gmuj_widget_highlight_list_grid_container {
     display: grid;
     grid-gap: 0.5em;
     grid-template-columns: repeat(auto-fit, minmax(255px,1fr));
     text-align: center;
 }
 
-/* Style project links */
-.widget_gmuj_widget_recent_posts a.widget_gmuj_widget_project_list_item {
+/* Style highlight links */
+.widget_gmuj_widget_recent_posts a.widget_gmuj_widget_highlight_list_item {
     text-align: center;
     box-shadow: 0 2px 2px rgba(0,0,0,0.15);
     transition: all 0.3s ease-in-out;
@@ -32,33 +32,33 @@
     text-decoration: none;
 }
 
-/* Style project links on hover */
-.widget_gmuj_widget_recent_posts a.widget_gmuj_widget_project_list_item:hover {
+/* Style highlight links on hover */
+.widget_gmuj_widget_recent_posts a.widget_gmuj_widget_highlight_list_item:hover {
     box-shadow: 0 2px 15px 2px rgba(0,0,0,0.15);
 }
 
-/* Style project image */
-.widget_gmuj_widget_recent_posts .widget_gmuj_widget_project_list_item_image {
+/* Style highlight image */
+.widget_gmuj_widget_recent_posts .widget_gmuj_widget_highlight_list_item_image {
     width: 255px;
     height: 190px;
     margin-bottom: 1em;
 }
 
-/* Style project name heading */
-.widget_gmuj_widget_recent_posts h4.project-name {
+/* Style highlight name heading */
+.widget_gmuj_widget_recent_posts h4.highlight-name {
     min-height:2em;
     margin: 1em auto;
     padding-bottom: 1em;
     font-size:1.1em;
 }
 
-/* Style project name heading on hover */
-.widget_gmuj_widget_recent_posts h4.project-name:hover {
+/* Style highlight name heading on hover */
+.widget_gmuj_widget_recent_posts h4.highlight-name:hover {
     text-decoration: underline;
 }
 
-/* Style project description */
-.widget_gmuj_widget_recent_posts .project-description {
+/* Style highlight description */
+.widget_gmuj_widget_recent_posts .highlight-description {
     text-align: center !important;
     position: absolute;
     top: -200px;
@@ -80,8 +80,8 @@
     filter: alpha(opacity=0);
 }
 
-/* Style project description for when the PROJECT is hovered-over */
-.widget_gmuj_widget_recent_posts a.widget_gmuj_widget_project_list_item:hover .project-description {
+/* Style highlight description for when the entire highlight is hovered-over */
+.widget_gmuj_widget_recent_posts a.widget_gmuj_widget_highlight_list_item:hover .highlight-description {
     top: 0px;
     background: rgba(34, 34, 34, 0.8) none repeat scroll 0% 0% !important;
     color: #fff;

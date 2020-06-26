@@ -37,8 +37,8 @@ function gmuj_load_and_register_custom_widgets() {
 		require('php/classes/gmuj_widget_cta_menu.php');
 		// Highlight item
 		require('php/classes/gmuj_widget_highlight_item.php');
-		// Project list
-		require('php/classes/gmuj_widget_project_list.php');
+		// Highlight list
+		require('php/classes/gmuj_widget_highlight_list.php');
 		// Recent posts
 		require('php/classes/gmuj_widget_recent_posts.php');
 		// Site alert ribbon
@@ -49,8 +49,8 @@ function gmuj_load_and_register_custom_widgets() {
 		register_widget('gmuj_widget_cta_menu');
 		// Highlight item
 		register_widget('gmuj_widget_highlight_item');
-		// Projects
-		register_widget('gmuj_widget_project_list');
+		// Highlight list
+		register_widget('gmuj_widget_highlight_list');
 		// Recent posts
 		register_widget('gmuj_widget_recent_posts');
 		// Alert Ribbon

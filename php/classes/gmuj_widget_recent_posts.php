@@ -117,22 +117,22 @@ class gmuj_widget_recent_posts extends WP_Widget {
             echo $instance['title'];
             echo $args['after_title'];
 
-            // Begin grid container (to hold the project list items)
+            // Begin grid container (to hold the highlight list items)
             ?>
-            <div class='widget_gmuj_widget_project_list_grid_container'>
+            <div class='widget_gmuj_widget_highlight_list_grid_container'>
 
                 <?php 
                 // Loop through posts
                 while ($r->have_posts()): $r->the_post(); 
 
                     // Begin post link
-                    echo'<a class="widget_gmuj_widget_project_list_item" href="'.get_permalink(get_page_by_path(get_post_field('post_name'))).'">';
+                    echo'<a class="widget_gmuj_widget_highlight_list_item" href="'.get_permalink(get_page_by_path(get_post_field('post_name'))).'">';
 
                     // Do we have an image for this post?
                         if (has_post_thumbnail()) { 
                             // If so, output it
                             //the_post_thumbnail(); 
-                            the_post_thumbnail('post-thumbnail', ['class' => 'widget_gmuj_widget_project_list_item_image']);
+                            the_post_thumbnail('post-thumbnail', ['class' => 'widget_gmuj_widget_highlight_list_item_image']);
                         } else {
                             // If not, get the path of a default image
                                 // First, choose a random brand color
@@ -140,14 +140,14 @@ class gmuj_widget_recent_posts extends WP_Widget {
                                 // Next, generate the image file path using the random color
                                 $image=plugins_url().'/gmuj-wordpress-plugin-mason-custom-widgets/images/mason-default-image-'.$random_color.'-640x480.png';
                                 // Output the HTML image tag
-                                echo "<img class='widget_gmuj_widget_project_list_item_image' src='". $image. "' />";
+                                echo "<img class='widget_gmuj_widget_highlight_list_item_image' src='". $image. "' />";
                         }
 
                     // Output post title
-                    echo'<h4 class="project-name">'.get_the_title().'</h4>';
+                    echo'<h4 class="highlight-name">'.get_the_title().'</h4>';
 
                     // Output posr excerpt
-                    echo'<div class="project-description">'.get_the_excerpt().'</div>';
+                    echo'<div class="highlight-description">'.get_the_excerpt().'</div>';
 
                     // End post link
                     echo'</a>';

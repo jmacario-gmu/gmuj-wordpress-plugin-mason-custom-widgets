@@ -1,17 +1,17 @@
 <?php
 
 /**
- * php file which defines custom widget class: project list
+ * php file which defines custom widget class: highlight list
  */
 
 
 /**
- * custom widget class definition: project list
+ * custom widget class definition: highlight list
  */
-class gmuj_widget_project_list extends WP_Widget {
+class gmuj_widget_highlight_list extends WP_Widget {
     use gmuj_widget_image;
     
-    // Set maximum number of project list items
+    // Set maximum number of highlight list items
     const MAX_COUNT = 4;
 
 	/**
@@ -20,9 +20,9 @@ class gmuj_widget_project_list extends WP_Widget {
     public function __construct() {
         WP_Widget::__construct(
         // Base ID of your widget
-        'gmuj_widget_project_list', 
+        'gmuj_widget_highlight_list', 
         // Widget name will appear in UI
-        '(Mason) Project List', 
+        '(Mason) Highlight List', 
         // Widget description
         array('description' => 'Display multiple images with titles and descriptions.') 
         );
@@ -33,10 +33,10 @@ class gmuj_widget_project_list extends WP_Widget {
 	 */
     public function widget( $args, $instance ) {
         for ($i = 1; $i <= self::MAX_COUNT; $i++) {
-            $projects['name-'.$i] = isset( $instance['name-'.$i] ) ? strip_tags($instance['name-'.$i]) : '';
-            $projects['image-'.$i] = isset( $instance['image-'.$i] ) ? esc_url($instance['image-'.$i]) : '';
-            $projects['text-'.$i] = isset( $instance['text-'.$i] ) ? strip_tags($instance['text-'.$i]) : '';
-            $projects['url-'.$i] = isset( $instance['url-'.$i] ) ? esc_url_raw($instance['url-'.$i]) : '';
+            $highlight_list_items['name-'.$i] = isset( $instance['name-'.$i] ) ? strip_tags($instance['name-'.$i]) : '';
+            $highlight_list_items['image-'.$i] = isset( $instance['image-'.$i] ) ? esc_url($instance['image-'.$i]) : '';
+            $highlight_list_items['text-'.$i] = isset( $instance['text-'.$i] ) ? strip_tags($instance['text-'.$i]) : '';
+            $highlight_list_items['url-'.$i] = isset( $instance['url-'.$i] ) ? esc_url_raw($instance['url-'.$i]) : '';
         }
         $count = isset($instance['count'])? strip_tags($instance['count']) : '';
 
@@ -48,27 +48,27 @@ class gmuj_widget_project_list extends WP_Widget {
 		echo $instance['title'];
 		echo $args['after_title'];
 
-        // Begin grid container (to hold the project list items)
-        echo "<div class='widget_gmuj_widget_project_list_grid_container'>";
+        // Begin grid container (to hold the highlight list items)
+        echo "<div class='widget_gmuj_widget_highlight_list_grid_container'>";
 
-        // Loop through project list items
+        // Loop through highlight list items
         for ($i = 1; $i <= $count; $i++) {
 
-            // Begin project link
-            echo'<a class="widget_gmuj_widget_project_list_item" href="'.$projects['url-'.$i].'">';
+            // Begin highlight link
+            echo'<a class="widget_gmuj_widget_highlight_list_item" href="'.$highlight_list_items['url-'.$i].'">';
 
-            // Output project image
-            echo $this->gmuj_widget_image_render( $instance, "widget_gmuj_widget_project_list_item_image", 'image-'.$i, false);
+            // Output highlight image
+            echo $this->gmuj_widget_image_render( $instance, "widget_gmuj_widget_highlight_list_item_image", 'image-'.$i, false);
 
-            // Output project title
-            echo'<h4 class="project-name">'.$projects['name-'.$i].'</h4>';
+            // Output highlight title
+            echo'<h4 class="highlight-name">'.$highlight_list_items['name-'.$i].'</h4>';
 
-            // Output project description
-            if (!empty($projects['text-'.$i])){
-                echo'<div class="project-description">'.$projects['text-'.$i].'</div>';
+            // Output highlight description
+            if (!empty($highlight_list_items['text-'.$i])){
+                echo'<div class="highlight-description">'.$highlight_list_items['text-'.$i].'</div>';
             }
 
-            // End project link
+            // End highlight link
             echo'</a>';
         }
 
@@ -89,31 +89,31 @@ class gmuj_widget_project_list extends WP_Widget {
     public function form( $instance ) {
 
         /**
-         * Output jQuery script which supports the project list widget editor
+         * Output jQuery script which supports the highlight list widget editor
          * 
          * For some reason, this code does not work well if placed in an external js file. The number of items select box functionality does not persist after the widget is saved.
          * 
          */
         ?>
 
-        <!-- jQuery script providing functionality for the project list widget interface -->
+        <!-- jQuery script providing functionality for the highlight list widget interface -->
         <script>
             jQuery(document).ready(function ($) {
                 
                 // Debug output
-                console.log("script loaded: gmuj_widget_project_list");
+                console.log("script loaded: gmuj_widget_highlight_list");
 
-                // Function to run when the project count select box changes
-                $(".gmuj-widget-project-list-item-count").change(function () {
+                // Function to run when the highlight count select box changes
+                $(".gmuj-widget-highlight-list-item-count").change(function () {
 
                     // Debug output
-                    console.log("Project item count changed");
+                    console.log("Highlight item count changed");
 
                     // Show the alert message
-                    $(".gmuj-widget-project-list-item-count-change-message").css("display", "unset");
+                    $(".gmuj-widget-highlight-list-item-count-change-message").css("display", "unset");
 
                     // Hide the widget items to force the user to save
-                    $(".gmuj-widget-project-list-items").css("display", "none");
+                    $(".gmuj-widget-highlight-list-items").css("display", "none");
 
                 });
 
@@ -153,7 +153,7 @@ class gmuj_widget_project_list extends WP_Widget {
             ?>
             <p>
                 <label for="<?php echo $this->get_field_id('count'); ?>">How many items? </label>
-                <select id="<?php echo $this->get_field_id('count'); ?>" name="<?php echo $this->get_field_name('count'); ?>" class="gmuj-widget-project-list-item-count">
+                <select id="<?php echo $this->get_field_id('count'); ?>" name="<?php echo $this->get_field_name('count'); ?>" class="gmuj-widget-highlight-list-item-count">
                 <?php 
                 for ($i = 1; $i <=self::MAX_COUNT; $i++) {
                     echo "<option value='".$i."'";
@@ -167,54 +167,54 @@ class gmuj_widget_project_list extends WP_Widget {
 
             // Item count change message
             ?>
-            <div class="gmuj-widget-project-list-item-count-change-message">The count has changed. Please save to update visible fields.</div>
+            <div class="gmuj-widget-highlight-list-item-count-change-message">The count has changed. Please save to update visible fields.</div>
             <?php
 
-            // Output project items container
+            // Output highlight items container
             ?>
-            <div class="gmuj-widget-project-list-items">
+            <div class="gmuj-widget-highlight-list-items">
                 <?php 
 
-                // Loop through project items
+                // Loop through highlight items
                 for ($i = 1; $i <= $count; $i++) {
 
                     ?>
-                    <div class='gmuj-widget-project-list-item gmuj-widget-project-list-item-<?php echo $i ?>'>
+                    <div class='gmuj-widget-highlight-list-item gmuj-widget-highlight-list-item-<?php echo $i ?>'>
                         
-                        <!-- Project list item heading -->
-                        <p class="gmuj-widget-project-list-item-heading">Item <?php echo $i ?></p>
+                        <!-- highlight list item heading -->
+                        <p class="gmuj-widget-highlight-list-item-heading">Item <?php echo $i ?></p>
                 		
-                        <!-- Project list item name -->
+                        <!-- highlight list item name -->
                         <p>
                             <label for="<?php echo $this->get_field_id('name-'.$i); ?>">Item Name:</label></br>
                             <input class="widefat" id="<?php echo $this->get_field_id('name-'.$i); ?>" type="text" value="<?php echo $instance['name-'.$i]; ?>" name="<?php echo $this->get_field_name('name-'.$i); ?>" />
                         </p>
 
-                        <!-- Project list item image form -->
+                        <!-- highlight list item image form -->
                     	<?php 
                             $this->gmuj_widget_image_form_item($instance, 'image-'.$i, 'Item Image: ', true, "", ""); 
                         ?>
                         
-                        <!-- Project list item description -->
+                        <!-- highlight list item description -->
                         <p>
                             <label for="<?php echo $this->get_field_id('text-'.$i); ?>">Item Description: </label>
                             </br>
                             <textarea class="widefat" id="<?php echo $this->get_field_id('text-'.$i); ?>" type="text" name="<?php echo $this->get_field_name('text-'.$i); ?>" ><?php echo $instance['text-'.$i]; ?></textarea>
                         </p>
 
-                        <!-- Project list item link -->
+                        <!-- highlight list item link -->
                         <p>
                             <label for="<?php echo $this->get_field_id('url-'.$i); ?>">Item Link:</label>
                             <input class="widefat" id="<?php echo $this->get_field_id('url-'.$i); ?>" name="<?php echo $this->get_field_name('url-'.$i); ?>" type="text" value="<?php echo $instance['url-'.$i]; ?>" />
                         </p>
                     
-                    </div> <!--/.project-list-item-->
+                    </div> <!--/.highlight-list-item-->
                     
                 <?php 
-                    } // end of project items loop
+                    } // end of highlight items loop
                 ?> 
 
-            </div> <!--/.project-widget-items-->
+            </div> <!--/.highlight-widget-items-->
 
         <?php
     }
