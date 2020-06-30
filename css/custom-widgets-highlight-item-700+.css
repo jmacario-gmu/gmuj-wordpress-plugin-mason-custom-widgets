@@ -5,8 +5,14 @@
 /* 700+ pixels */
 
 
-/* Style highlight item image */
-.widget_gmuj_widget_highlight_item img.highlight-item-image {
+/* Style highlight item image, if floated right */
+.widget_gmuj_widget_highlight_item img.highlight-item-image-right {
     margin-left: 4em;
     margin-right: 1em;
+}
+
+/* Style highlight item image, if floated right */
+.widget_gmuj_widget_highlight_item img.highlight-item-image-left {
+    margin-right: 4em;
+    margin-left: 1em;
 }

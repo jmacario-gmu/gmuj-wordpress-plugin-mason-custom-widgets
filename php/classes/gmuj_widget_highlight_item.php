@@ -88,7 +88,17 @@ class gmuj_widget_highlight_item extends WP_Widget_Custom_HTML {
 		
 		// Output image, if one is specified
 		if ($has_image) {
-			echo $this->gmuj_widget_image_render($instance, "highlight-item-image");
+
+			// Get image float setting and use it to set the variable specifiying the appropriate HTML class
+			if ($instance['float']=='left') {
+				$float='highlight-item-image-left';
+			} else {
+				$float='highlight-item-image-right';
+			}
+
+			// Output image, along with specified float class
+			echo $this->gmuj_widget_image_render($instance, "highlight-item-image $float");
+
 		}
 
 		// Output widget content
@@ -108,6 +118,34 @@ class gmuj_widget_highlight_item extends WP_Widget_Custom_HTML {
 		// Display custom image trait form
 		$this->gmuj_widget_image_form_item($instance, 'image', 'Image: ', true);
 
+        // Get existing field values, or set default values
+			// Float
+	        if (isset($instance['float'])) {
+	            // If so, store it
+	            $float = $instance['float'];
+	        } else {
+	            // If not, set a default float
+	            $float = 'right';
+	        }
+
+        // Image float
+        ?>
+        <p>
+            <label for="<?php echo $this->get_field_id('float'); ?>">Float? </label>
+            <select id="<?php echo $this->get_field_id('float'); ?>" name="<?php echo $this->get_field_name('float'); ?>">
+            <?php
+            echo "<option value='right'";
+            if ($float == 'right') {echo " selected";}
+            echo ">Right</option>";
+            echo "<option value='left'";
+            if ($float == 'left') {echo " selected";}
+            echo ">Left</option>";
+            ?>
+            </select>
+        </p>
+        <?php
+
+
 	}
 	 
 	/**
@@ -118,8 +156,13 @@ class gmuj_widget_highlight_item extends WP_Widget_Custom_HTML {
 		// Update standard custom HTML widget fields
 		$instance = parent::update($new_instance, $old_instance);
 
-		// Update custom image trait fields
-		$instance = array_merge($instance,$this->gmuj_widget_image_update($new_instance,$old_instance));
+		// Update additional fields
+
+			// Float
+			$instance['float'] = strip_tags($new_instance['float']);
+
+			// Update custom image trait fields
+			$instance = array_merge($instance,$this->gmuj_widget_image_update($new_instance,$old_instance));
 
 		return $instance;
 
