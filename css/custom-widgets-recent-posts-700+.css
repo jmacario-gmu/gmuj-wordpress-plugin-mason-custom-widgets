@@ -2,28 +2,24 @@
 
 /* Recent posts */
 
-/* Default and small screens */
-
-/* Style recent posts list title */
-.widget_gmuj_widget_recent_posts h3.widget-title {
-
-}
+/* 700+ pixels */
 
 /* Style calls-to-action widget sub-titles, other than when used on the homepage banner */
-ul.sidebar-homepage:not(#sidebar-homepage-banner) li.widget_gmuj_widget_recent_posts p.widget-title-sub, 
+ul.sidebar-homepage:not(#sidebar-homepage-banner) li.widget_gmuj_widget_recent_posts p.widget-title-sub,
 div.entry-content li.widget_gmuj_widget_recent_posts p.widget-title-sub {
-    margin-top: -1em;
-    margin-bottom:2em;
-    text-align:center;
-    font-color:#006633 !important;
-    font-size:1.1em;
+    font-size:1.3em;
+}
+
+/* Style recent posts widget sub-titles for the homepage banner */
+ul#sidebar-homepage-banner li.widget_gmuj_widget_recent_posts p.widget-title-sub {
+    font-size:1.3em;
 }
 
 /* Style recent posts widget sub-titles for the homepage banner */
 ul#sidebar-homepage-banner li.widget_gmuj_widget_recent_posts p.widget-title-sub {
     margin-left:1em;
     margin-bottom:2em;
-    font-size:1.1em;
+    font-size:1.3em;
 }
 
 /* Style highlight list container */

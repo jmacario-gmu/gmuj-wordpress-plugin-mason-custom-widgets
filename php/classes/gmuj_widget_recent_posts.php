@@ -32,6 +32,8 @@ class gmuj_widget_recent_posts extends WP_Widget {
         // Get existing field values and set default values if needed
             // Title
             $title = isset($instance['title']) ? esc_attr($instance['title']) : '';
+            // Sub-title
+            $title_sub = isset($instance['title_sub']) ? esc_attr($instance['title_sub']) : '';
             // Category
             $category = isset($instance['category']) ? esc_attr($instance['category']) : '';
             // Number
@@ -43,6 +45,14 @@ class gmuj_widget_recent_posts extends WP_Widget {
             <p>
                 <label for="<?php echo $this->get_field_id('title'); ?>">Title:</label>
                 <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" />
+            </p>
+            <?php
+
+            // Sub-title
+            ?>
+            <p>
+                <label for="<?php echo $this->get_field_id('title_sub'); ?>">Sub-title:</label>
+                <input class="widefat" id="<?php echo $this->get_field_id('title_sub'); ?>" name="<?php echo $this->get_field_name('title_sub'); ?>" type="text" value="<?php echo $title_sub; ?>" />
             </p>
             <?php
 
@@ -70,9 +80,10 @@ class gmuj_widget_recent_posts extends WP_Widget {
     function update($new_instance, $old_instance) {
 
         // Sanitize and store widget fields
-        $instance['title']          = strip_tags($new_instance['title']);
-        $instance['number']         = strip_tags($new_instance['number']);  
-        $instance['category']       = strip_tags($new_instance['category']);
+        $instance['title']     = strip_tags($new_instance['title']);
+        $instance['title_sub'] = strip_tags($new_instance['title_sub']);
+        $instance['number']    = strip_tags($new_instance['number']);
+        $instance['category']  = strip_tags($new_instance['category']);
 
         // Return
         return $instance;
@@ -112,10 +123,17 @@ class gmuj_widget_recent_posts extends WP_Widget {
         // Do we have posts to display?
         if ($r->have_posts()){
 
-            // Output widget title
-            echo $args['before_title'];
-            echo $instance['title'];
-            echo $args['after_title'];
+            // Output widget title, if it is not empty
+            if (!empty($instance['title'])) {
+                echo $args['before_title'];
+                echo $instance['title'];
+                echo $args['after_title'];
+            }
+
+            // Output widget sub-title, if it is not empty
+            if (!empty($instance['title_sub'])) {
+                echo '<p class="widget-title-sub">'.$instance['title_sub'].'</p>';
+            }
 
             // Begin grid container (to hold the highlight list items)
             ?>
