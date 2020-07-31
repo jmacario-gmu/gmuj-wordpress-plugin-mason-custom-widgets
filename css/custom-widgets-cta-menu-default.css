@@ -36,7 +36,7 @@ div.entry-content li.widget_gmuj_widget_call_to_action_menu p.widget-title-sub {
 	background-color: #063;
 	background-image: url('/wp-content/plugins/gmuj-wordpress-plugin-mason-custom-widgets/images/logo-mason-m-193x204.png');
 	background-repeat: no-repeat;
-	background-position: 125% 20%;
+	background-position: calc(100% + 3em) 20%;
 }
 
 /* Style calls-to-action widget menu item links */
