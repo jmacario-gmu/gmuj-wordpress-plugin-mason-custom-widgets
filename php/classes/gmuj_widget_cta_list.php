@@ -78,7 +78,7 @@ class gmuj_widget_cta_list extends WP_Widget {
         }
 
         // End list element
-        echo '</div>';
+        echo '</ul>';
         ?>
 
 	    <?php 
