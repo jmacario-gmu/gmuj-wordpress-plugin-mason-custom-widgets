@@ -57,8 +57,12 @@ class gmuj_widget_cta_list extends WP_Widget {
         // Loop through cta list items
         for ($i = 1; $i <= $count; $i++) {
 
-            // Begin CTA list item
-            echo'<li style="background-image:url(\'/wp-content/plugins/gmuj-wordpress-plugin-mason-custom-widgets/images/'.$cta_list_items['image-'.$i].'\')">';
+            // Begin CTA list item, taking into account whether an image has been selected
+            if (!empty($cta_list_items['image-'.$i])) {
+                echo '<li style="background-image:url(\'/wp-content/plugins/gmuj-wordpress-plugin-mason-custom-widgets/images/'.$cta_list_items['image-'.$i].'\')">';
+            } else {
+                echo '<li>';
+            }
            
             // Begin cta link
             echo'<a href="'.$cta_list_items['url-'.$i].'">';
@@ -223,30 +227,31 @@ class gmuj_widget_cta_list extends WP_Widget {
                             <input class="widefat" id="<?php echo $this->get_field_id('image-'.$i); ?>" type="text" value="<?php echo $instance['image-'.$i]; ?>" name="<?php echo $this->get_field_name('image-'.$i); ?>" />
                             -->
                             <select id="<?php echo $this->get_field_id('image-'.$i); ?>" name="<?php echo $this->get_field_name('image-'.$i); ?>">
-                            <?php 
-                            // declare array of images
-                               $image_options = array(
-                                array("name"=>"Athletics (star)","file"=>"cta-athletics.png"),
-                                array("name"=>"Books","file"=>"cta-books.png"),
-                                array("name"=>"Calendar","file"=>"cta-calendar.png"), 
-                                array("name"=>"Financial","file"=>"cta-financial.png"), 
-                                array("name"=>"Form","file"=>"cta-form.png"), 
-                                array("name"=>"Graduate","file"=>"cta-graduate.png"), 
-                                array("name"=>"Information","file"=>"cta-info.png"), 
-                                array("name"=>"Mason M","file"=>"cta-mason.png"), 
-                                array("name"=>"News","file"=>"cta-news.png"), 
-                                array("name"=>"Person","file"=>"cta-person.png"), 
-                                array("name"=>"Question","file"=>"cta-question.png"),
-                                array("name"=>"Research","file"=>"cta-research.png"),
-                                array("name"=>"Triforce","file"=>"cta-triforce.png"),
-                                array("name"=>"VA Seal","file"=>"cta-va-seal.png"),
-                            );
-                            // Loop through image options
-                            foreach ($image_options as $image_option) {
-                                echo "<option value='".$image_option["file"]."'";
-                                if ($instance['image-'.$i] == $image_option["file"]) {echo " selected";}
-                                echo ">".$image_option["name"]."</option>";                            }
-                            ?>
+                                <option value="">Select image...</option>
+                                <?php
+                                // declare array of images
+                                   $image_options = array(
+                                    array("name"=>"Athletics (star)","file"=>"cta-athletics.png"),
+                                    array("name"=>"Books","file"=>"cta-books.png"),
+                                    array("name"=>"Calendar","file"=>"cta-calendar.png"),
+                                    array("name"=>"Financial","file"=>"cta-financial.png"),
+                                    array("name"=>"Form","file"=>"cta-form.png"),
+                                    array("name"=>"Graduate","file"=>"cta-graduate.png"),
+                                    array("name"=>"Information","file"=>"cta-info.png"),
+                                    array("name"=>"Mason M","file"=>"cta-mason.png"),
+                                    array("name"=>"News","file"=>"cta-news.png"),
+                                    array("name"=>"Person","file"=>"cta-person.png"),
+                                    array("name"=>"Question","file"=>"cta-question.png"),
+                                    array("name"=>"Research","file"=>"cta-research.png"),
+                                    array("name"=>"Triforce","file"=>"cta-triforce.png"),
+                                    array("name"=>"VA Seal","file"=>"cta-va-seal.png"),
+                                );
+                                // Loop through image options
+                                foreach ($image_options as $image_option) {
+                                    echo "<option value='".$image_option["file"]."'";
+                                    if ($instance['image-'.$i] == $image_option["file"]) {echo " selected";}
+                                    echo ">".$image_option["name"]."</option>";                            }
+                                ?>
                             </select>
                         </p>
                         
