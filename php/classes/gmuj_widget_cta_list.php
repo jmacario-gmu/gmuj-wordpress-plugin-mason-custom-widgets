@@ -231,6 +231,7 @@ class gmuj_widget_cta_list extends WP_Widget {
                                 <?php
                                 // declare array of images
                                    $image_options = array(
+                                    array("name"=>"Alert","file"=>"cta-alert.png"),
                                     array("name"=>"Athletics (star)","file"=>"cta-athletics.png"),
                                     array("name"=>"Books","file"=>"cta-books.png"),
                                     array("name"=>"Calendar","file"=>"cta-calendar.png"),
@@ -239,10 +240,12 @@ class gmuj_widget_cta_list extends WP_Widget {
                                     array("name"=>"Graduate","file"=>"cta-graduate.png"),
                                     array("name"=>"Information","file"=>"cta-info.png"),
                                     array("name"=>"Mason M","file"=>"cta-mason.png"),
+                                    array("name"=>"Music","file"=>"cta-music.png"),
                                     array("name"=>"News","file"=>"cta-news.png"),
                                     array("name"=>"Person","file"=>"cta-person.png"),
                                     array("name"=>"Question","file"=>"cta-question.png"),
                                     array("name"=>"Research","file"=>"cta-research.png"),
+                                    array("name"=>"Theater","file"=>"cta-theater.png"),
                                     array("name"=>"Triforce","file"=>"cta-triforce.png"),
                                     array("name"=>"VA Seal","file"=>"cta-va-seal.png"),
                                 );
