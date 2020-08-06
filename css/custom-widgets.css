@@ -1,5 +1,8 @@
 /* Mason custom widgets */
 
+/* Calls-to-action list */
+@import 'custom-widgets-cta-list.css';
+
 /* Calls-to-action menu */
 @import 'custom-widgets-cta-menu.css';
 

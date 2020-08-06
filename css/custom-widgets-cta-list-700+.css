@@ -1,0 +1,22 @@
+/* Mason custom widgets */
+
+/* Call-to-action list */
+
+/* 700+ pixels */
+
+
+/* Style calls-to-action widget title */
+.widget_gmuj_widget_cta_list h3.widget-title {
+	font-size:3.5rem;
+	margin-bottom:2.5rem;
+}
+
+/* Style calls-to-action widget sub-title*/
+.widget_gmuj_widget_cta_list p.widget-title-sub {
+	font-size: 1.1em;
+}
+
+/* Style calls-to-action widget list item links */
+.widget_gmuj_widget_cta_list ul li a {
+	padding: 0.5em 1em;
+}

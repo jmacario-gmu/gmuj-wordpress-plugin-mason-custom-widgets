@@ -33,6 +33,8 @@ function gmuj_load_and_register_custom_widgets() {
 		include('php/traits/gmuj_widget_image.php');
 
 	// Include custom widget classes
+		// Call-to-action list
+		require('php/classes/gmuj_widget_cta_list.php');
 		// Call-to-action menu
 		require('php/classes/gmuj_widget_cta_menu.php');
 		// Highlight item
@@ -45,6 +47,8 @@ function gmuj_load_and_register_custom_widgets() {
 		require('php/classes/gmuj_widget_alert_ribbon.php');
 
 	// Register custom widgets
+		// Call-to-action list
+		register_widget('gmuj_widget_cta_list');
 		// Call-to-action menu
 		register_widget('gmuj_widget_cta_menu');
 		// Highlight item

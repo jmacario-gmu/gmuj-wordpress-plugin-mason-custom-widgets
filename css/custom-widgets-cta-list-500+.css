@@ -1,0 +1,26 @@
+/* Mason custom widgets */
+
+/* Call-to-action list */
+
+/* 500+ pixels */
+
+
+/* Style calls-to-action widget list */
+.widget_gmuj_widget_cta_list ul {
+	display: flex;
+	justify-content: space-around;
+	align-items: flex-start;
+	flex-wrap: wrap;
+}
+
+/* Style calls-to-action widget list items */
+.widget_gmuj_widget_cta_list ul li {
+	flex: 1 1 0px;
+	/*background-position: calc(100% + 3em) top;*/
+}
+
+
+/* Style calls-to-action widget list item links */
+.widget_gmuj_widget_cta_list ul li a {
+	padding: 0.5em 1em;
+}
