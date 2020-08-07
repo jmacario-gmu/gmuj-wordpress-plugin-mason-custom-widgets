@@ -4,3 +4,6 @@
 
 /* Default and small screens */
 @import 'custom-widgets-highlight-list-default.css';
+
+/* 700+ pixels */
+@import 'custom-widgets-highlight-list-700+.css' screen and (min-width: 700px);

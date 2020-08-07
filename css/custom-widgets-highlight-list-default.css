@@ -10,6 +10,11 @@
 
 }
 
+/* Style highlight list widget sub-title */
+.widget_gmuj_widget_highlight_list p.widget-title-sub {
+    margin-bottom:2em;
+}
+
 /* Style highlight list container */
 .widget_gmuj_widget_highlight_list .widget_gmuj_widget_highlight_list_grid_container {
     display: grid;

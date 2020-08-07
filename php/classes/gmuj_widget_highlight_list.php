@@ -43,10 +43,17 @@ class gmuj_widget_highlight_list extends WP_Widget {
 		// Begin widget output
 		echo $args['before_widget'];
 
-		// Output widget title
-		echo $args['before_title'];
-		echo $instance['title'];
-		echo $args['after_title'];
+        // Output widget title, if it is not empty
+        if (!empty($instance['title'])) {
+            echo $args['before_title'];
+            echo $instance['title'];
+            echo $args['after_title'];
+        }
+
+        // Output widget sub-title, if it is not empty
+        if (!empty($instance['title_sub'])) {
+            echo '<p class="widget-title-sub">'.$instance['title_sub'].'</p>';
+        }
 
         // Begin grid container (to hold the highlight list items)
         echo "<div class='widget_gmuj_widget_highlight_list_grid_container'>";
@@ -129,6 +136,13 @@ class gmuj_widget_highlight_list extends WP_Widget {
             $title = $instance['title'];
         }
 
+        // Subtitle
+        // Do we have a sub-title?
+        if (isset( $instance['title_sub'])) {
+            // If so, store it
+            $title_sub = $instance['title_sub'];
+        }
+
         // Count of items
         // Do we have a count?
         if (isset($instance['count'])) {
@@ -146,6 +160,14 @@ class gmuj_widget_highlight_list extends WP_Widget {
                 <label for="<?php echo $this->get_field_id('title'); ?>">Title</label>
                 <br />
                 <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" type="text" value="<?php echo $title ?>" name="<?php echo $this->get_field_name('title'); ?>" />
+            </p>
+            <?php
+
+            // Sub-title
+            ?>
+            <p>
+                <label for="<?php echo $this->get_field_id('title_sub'); ?>">Sub-title:</label><br />
+                <input class="widefat" id="<?php echo $this->get_field_id('title_sub'); ?>" type="text" value="<?php echo $title_sub ?>" name="<?php echo $this->get_field_name('title_sub'); ?>" />
             </p>
             <?php
 
@@ -226,6 +248,7 @@ class gmuj_widget_highlight_list extends WP_Widget {
 
         // Sanitize and store widget fields
 		$instance['title'] = strip_tags($new_instance['title']);
+        $instance['title_sub'] = strip_tags($new_instance['title_sub']);
 		$instance['count'] = strip_tags($new_instance['count']);
 		// Loop through item fields
         for ($i = 1; $i <= self::MAX_COUNT; $i++) {
