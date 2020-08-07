@@ -77,9 +77,6 @@ class gmuj_widget_cta_menu extends WP_Widget{
 			if (isset( $instance['title'])) {
 				// If so, store it
 				$title = $instance['title'];
-			} else {
-				// If not, set a default title
-				$title = "Do Something!:";
 			}
 
 			// Subtitle
@@ -87,9 +84,6 @@ class gmuj_widget_cta_menu extends WP_Widget{
 			if (isset( $instance['title_sub'])) {
 				// If so, store it
 				$title_sub = $instance['title_sub'];
-			} else {
-				// If not, set a default sub-title
-				$title_sub = "Preferably one of these things...";
 			}
 
 			// Related menu
