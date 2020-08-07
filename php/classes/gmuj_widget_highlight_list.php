@@ -37,6 +37,7 @@ class gmuj_widget_highlight_list extends WP_Widget {
             $highlight_list_items['image-'.$i] = isset( $instance['image-'.$i] ) ? esc_url($instance['image-'.$i]) : '';
             $highlight_list_items['text-'.$i] = isset( $instance['text-'.$i] ) ? strip_tags($instance['text-'.$i]) : '';
             $highlight_list_items['url-'.$i] = isset( $instance['url-'.$i] ) ? esc_url_raw($instance['url-'.$i]) : '';
+            $highlight_list_items['new_tab-'.$i] = isset( $instance['new_tab-'.$i] ) ? strip_tags($instance['new_tab-'.$i]) : '';
         }
         $count = isset($instance['count'])? strip_tags($instance['count']) : '';
 
@@ -62,7 +63,13 @@ class gmuj_widget_highlight_list extends WP_Widget {
         for ($i = 1; $i <= $count; $i++) {
 
             // Begin highlight link
-            echo'<a class="widget_gmuj_widget_highlight_list_item" href="'.$highlight_list_items['url-'.$i].'">';
+            echo '<a class="widget_gmuj_widget_highlight_list_item" ';
+            echo 'href="'.$highlight_list_items['url-'.$i].'" ';
+            // Open link in new tab if specified
+            if($highlight_list_items['new_tab-'.$i] == 'true'){
+                echo 'target="_blank" ';
+            }
+            echo '>';
 
             // Output highlight image
             echo $this->gmuj_widget_image_render( $instance, "widget_gmuj_widget_highlight_list_item_image", 'image-'.$i, false);
@@ -229,7 +236,13 @@ class gmuj_widget_highlight_list extends WP_Widget {
                             <label for="<?php echo $this->get_field_id('url-'.$i); ?>">Item Link:</label>
                             <input class="widefat" id="<?php echo $this->get_field_id('url-'.$i); ?>" name="<?php echo $this->get_field_name('url-'.$i); ?>" type="text" value="<?php echo $instance['url-'.$i]; ?>" />
                         </p>
-                    
+
+                        <!-- open in a new tab? -->
+                        <p>
+                            <label for="<?php echo $this->get_field_id('new_tab-'.$i); ?>">Open in a new tab?</label>
+                            <input type="checkbox" id="<?php echo $this->get_field_id('new_tab-'.$i); ?>" name="<?php echo $this->get_field_name('new_tab-'.$i); ?>" value="true" <?php if ($instance['new_tab-'.$i]=='true') echo 'checked="checked"'; ?> />
+                        </p>
+
                     </div> <!--/.highlight-list-item-->
                     
                 <?php 
@@ -257,6 +270,7 @@ class gmuj_widget_highlight_list extends WP_Widget {
 			$instance['image-'.$i."_alt"] = $instance['name-'.$i];
 			$instance['text-'.$i] = strip_tags($new_instance['text-'.$i]);
 			$instance['url-'.$i] = esc_url_raw($new_instance['url-'.$i]);
+            $instance['new_tab-'.$i] = strip_tags($new_instance['new_tab-'.$i]);
 		}
         
         // Return
