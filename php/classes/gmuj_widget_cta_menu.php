@@ -18,7 +18,7 @@ class gmuj_widget_cta_menu extends WP_Widget{
 		// Base ID of your widget
 		'gmuj_widget_call_to_action_menu',
 		// Widget name will appear in UI
-		'(Mason) Call-to-Action Menu',
+		'(M) Call-to-Action Menu',
 		// Widget description
 		array('description' => 'Generates a list of call-to-action buttons using a navigation menu.')
 		);

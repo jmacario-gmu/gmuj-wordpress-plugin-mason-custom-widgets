@@ -20,7 +20,7 @@ class gmuj_widget_highlight_item extends WP_Widget_Custom_HTML {
 		// Base ID of your widget
 		'gmuj_widget_highlight_item', 
 		// Widget name will appear in UI
-		'(Mason) Highlight Item', 
+		'(M) Highlight Item',
 		// Widget description
 		array( 'description' => 'A text blurb next to an image.') 
 		);

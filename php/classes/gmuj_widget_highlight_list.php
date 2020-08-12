@@ -22,7 +22,7 @@ class gmuj_widget_highlight_list extends WP_Widget {
         // Base ID of your widget
         'gmuj_widget_highlight_list', 
         // Widget name will appear in UI
-        '(Mason) Highlight List', 
+        '(M) Highlight List',
         // Widget description
         array('description' => 'Display multiple images with titles and descriptions.') 
         );

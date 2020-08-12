@@ -18,7 +18,7 @@ class gmuj_widget_recent_posts extends WP_Widget {
         // Base ID of your widget
         'gmuj_widget_recent_posts', 
         // Widget name will appear in UI
-        '(Mason) Recent Posts', 
+        '(M) Recent Posts',
         // Widget description
         array('description' => 'Show your most recent posts.') 
         );

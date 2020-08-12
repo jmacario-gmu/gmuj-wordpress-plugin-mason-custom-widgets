@@ -21,7 +21,7 @@ class gmuj_widget_cta_list extends WP_Widget {
         // Base ID of your widget
         'gmuj_widget_cta_list', 
         // Widget name will appear in UI
-        '(Mason) Call-to-Action List', 
+        '(M) Call-to-Action List',
         // Widget description
         array('description' => 'Display call-to-action buttons with titles and icons.') 
         );

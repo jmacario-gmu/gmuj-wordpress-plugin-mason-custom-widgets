@@ -18,7 +18,7 @@ class gmuj_widget_alert_ribbon extends WP_Widget{
 		// Base ID of your widget
 		'gmuj_widget_alert_ribbon',
 		// Widget name will appear in UI
-		'(Mason) Alert Ribbon',
+		'(M) Alert Ribbon',
 		// Widget description
 		array('description' => 'Displays a prominent alert ribbon across the top of each page in your site.')
 		);
