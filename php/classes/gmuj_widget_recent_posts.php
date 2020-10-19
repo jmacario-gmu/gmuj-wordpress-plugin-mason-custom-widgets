@@ -158,7 +158,7 @@ class gmuj_widget_recent_posts extends WP_Widget {
                                 // Next, generate the image file path using the random color
                                 $image=plugins_url().'/gmuj-wordpress-plugin-mason-custom-widgets/images/mason-default-image-'.$random_color.'-640x480.png';
                                 // Output the HTML image tag
-                                echo "<img class='widget_gmuj_widget_highlight_list_item_image' src='". $image. "' />";
+                                echo "<img class='widget_gmuj_widget_highlight_list_item_image' src='". $image. "' alt='' />";
                         }
 
                     // Output post title
