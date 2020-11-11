@@ -137,12 +137,14 @@ class gmuj_widget_regex_content extends WP_Widget_Custom_HTML {
 			}
 
 			// Regex criteria
-	        if (isset($instance['regex_criteria'])) {
-	            // If so, store it
-	            $regex_criteria = $instance['regex_criteria'];
-	            // But first fix the auto-escaping of slash chars we did when saving
-	            $regex_criteria = str_replace("\/","/",$regex_criteria);
-	        }
+			if (isset($instance['regex_criteria'])) {
+			    // If so, store it
+			    $regex_criteria = $instance['regex_criteria'];
+			    // But first fix the auto-escaping of slash chars we did when saving
+			    $regex_criteria = str_replace("\/","/",$regex_criteria);
+			}
+
+        // Display input fields
 
 			// Sub-title
 			?>
@@ -152,15 +154,15 @@ class gmuj_widget_regex_content extends WP_Widget_Custom_HTML {
 			</p>
 			<?php
 
-        // Regex criteria
-        ?>
-        <p>
-            <label for="<?php echo $this->get_field_id('regex_criteria'); ?>">Regex criteria for display: </label>
-            <input type="text" id="<?php echo $this->get_field_id('regex_criteria'); ?>" name="<?php echo $this->get_field_name('regex_criteria'); ?>" value="<?php echo $regex_criteria ?>" />
-            <br />
-            This widget will only appear if the regular expression provided matches the URL slug of the current page. Leaving this blank will result in this widget appearing on all pages.
-        </p>
-        <?php
+			// Regex criteria
+			?>
+			<p>
+			    <label for="<?php echo $this->get_field_id('regex_criteria'); ?>">Regex criteria for display: </label>
+			    <input type="text" id="<?php echo $this->get_field_id('regex_criteria'); ?>" name="<?php echo $this->get_field_name('regex_criteria'); ?>" value="<?php echo $regex_criteria ?>" />
+			    <br />
+			    This widget will only appear if the regular expression provided matches the URL slug of the current page. Leaving this blank will result in this widget appearing on all pages.
+			</p>
+			<?php
 
 	}
 	 
