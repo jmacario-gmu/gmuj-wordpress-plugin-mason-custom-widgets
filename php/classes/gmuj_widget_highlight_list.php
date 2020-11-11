@@ -41,59 +41,72 @@ class gmuj_widget_highlight_list extends WP_Widget {
         }
         $count = isset($instance['count'])? strip_tags($instance['count']) : '';
 
-		// Begin widget output
-		echo $args['before_widget'];
+        // Get current page URL slug
+        global $wp;
+        $current_slug = add_query_arg( array(), $wp->request );
 
-        // Output widget title, if it is not empty
-        if (!empty($instance['title'])) {
-            echo $args['before_title'];
-            echo $instance['title'];
-            echo $args['after_title'];
-        }
+        // Get regex criteria
+        $regex_criteria=$instance['regex_criteria'];
 
-        // Output widget sub-title, if it is not empty
-        if (!empty($instance['title_sub'])) {
-            echo '<p class="widget-title-sub">'.$instance['title_sub'].'</p>';
-        }
+        // Does the regex criteria match the current URL slug?
+        if ( preg_match('/'.$regex_criteria.'/i', $current_slug) ) {
 
-        // Begin grid container (to hold the highlight list items)
-        echo "<div class='widget_gmuj_widget_highlight_list_grid_container'>";
+            // Begin widget output
+            echo $args['before_widget'];
 
-        // Loop through highlight list items
-        for ($i = 1; $i <= $count; $i++) {
-
-            // Begin highlight link
-            echo '<a class="widget_gmuj_widget_highlight_list_item" ';
-            echo 'href="'.$highlight_list_items['url-'.$i].'" ';
-            // Open link in new tab if specified
-            if($highlight_list_items['new_tab-'.$i] == 'true'){
-                echo 'target="_blank" ';
-            }
-            echo '>';
-
-            // Output highlight image
-            echo $this->gmuj_widget_image_render( $instance, "widget_gmuj_widget_highlight_list_item_image", 'image-'.$i, false);
-
-            // Output highlight title
-            echo'<h4 class="highlight-name">'.$highlight_list_items['name-'.$i].'</h4>';
-
-            // Output highlight description
-            if (!empty($highlight_list_items['text-'.$i])){
-                echo'<div class="highlight-description">'.$highlight_list_items['text-'.$i].'</div>';
+            // Output widget title, if it is not empty
+            if (!empty($instance['title'])) {
+                echo $args['before_title'];
+                echo $instance['title'];
+                echo $args['after_title'];
             }
 
-            // End highlight link
-            echo'</a>';
+            // Output widget sub-title, if it is not empty
+            if (!empty($instance['title_sub'])) {
+                echo '<p class="widget-title-sub">'.$instance['title_sub'].'</p>';
+            }
+
+            // Begin grid container (to hold the highlight list items)
+            echo "<div class='widget_gmuj_widget_highlight_list_grid_container'>";
+
+            // Loop through highlight list items
+            for ($i = 1; $i <= $count; $i++) {
+
+                // Begin highlight link
+                echo '<a class="widget_gmuj_widget_highlight_list_item" ';
+                echo 'href="'.$highlight_list_items['url-'.$i].'" ';
+                // Open link in new tab if specified
+                if($highlight_list_items['new_tab-'.$i] == 'true'){
+                    echo 'target="_blank" ';
+                }
+                echo '>';
+
+                // Output highlight image
+                echo $this->gmuj_widget_image_render( $instance, "widget_gmuj_widget_highlight_list_item_image", 'image-'.$i, false);
+
+                // Output highlight title
+                echo'<h4 class="highlight-name">'.$highlight_list_items['name-'.$i].'</h4>';
+
+                // Output highlight description
+                if (!empty($highlight_list_items['text-'.$i])){
+                    echo'<div class="highlight-description">'.$highlight_list_items['text-'.$i].'</div>';
+                }
+
+                // End highlight link
+                echo'</a>';
+            }
+
+            // End grid container
+            echo"</div>";
+            ?>
+
+            <?php
+
+            // Finish widget output
+            echo $args['after_widget'];
+
         }
 
-        // End grid container
-        echo"</div>";
-        ?>
-
-	    <?php 
-
-		// Finish widget output
-		echo $args['after_widget'];
     }
 
 
@@ -136,29 +149,39 @@ class gmuj_widget_highlight_list extends WP_Widget {
 
         <?php
 
-        // Title
-        // Do we have a title?
-        if (isset($instance['title'])) {
-            // If so, store it
-            $title = $instance['title'];
-        }
+        // Get existing field values, or set default values
 
-        // Subtitle
-        // Do we have a sub-title?
-        if (isset( $instance['title_sub'])) {
-            // If so, store it
-            $title_sub = $instance['title_sub'];
-        }
+            // Title
+            // Do we have a title?
+            if (isset($instance['title'])) {
+                // If so, store it
+                $title = $instance['title'];
+            }
 
-        // Count of items
-        // Do we have a count?
-        if (isset($instance['count'])) {
-            // If so, store it
-            $count = $instance['count'];
-        } else { 
-            // If not, set a default count
-            $count = 4;
-        }
+            // Subtitle
+            // Do we have a sub-title?
+            if (isset( $instance['title_sub'])) {
+                // If so, store it
+                $title_sub = $instance['title_sub'];
+            }
+
+            // Count of items
+            // Do we have a count?
+            if (isset($instance['count'])) {
+                // If so, store it
+                $count = $instance['count'];
+            } else {
+                // If not, set a default count
+                $count = 4;
+            }
+
+            // Regex criteria
+            if (isset($instance['regex_criteria'])) {
+                // If so, store it
+                $regex_criteria = $instance['regex_criteria'];
+                // But first fix the auto-escaping of slash chars we did when saving
+                $regex_criteria = str_replace("\/","/",$regex_criteria);
+            }
 
         // Display input fields
             // Title
@@ -197,6 +220,16 @@ class gmuj_widget_highlight_list extends WP_Widget {
             // Item count change message
             ?>
             <div class="gmuj-widget-highlight-list-item-count-change-message">The count has changed. Please save to update visible fields.</div>
+            <?php
+
+            // Regex criteria
+            ?>
+            <p>
+                <label for="<?php echo $this->get_field_id('regex_criteria'); ?>">Regex criteria for display: </label>
+                <input type="text" id="<?php echo $this->get_field_id('regex_criteria'); ?>" name="<?php echo $this->get_field_name('regex_criteria'); ?>" value="<?php echo $regex_criteria ?>" />
+                <br />
+                This widget will only appear if the regular expression provided matches the URL slug of the current page. Leaving this blank will result in this widget appearing on all pages.
+            </p>
             <?php
 
             // Output highlight items container
@@ -260,18 +293,23 @@ class gmuj_widget_highlight_list extends WP_Widget {
 	public function update( $new_instance, $old_instance ) {
 
         // Sanitize and store widget fields
-		$instance['title'] = strip_tags($new_instance['title']);
-        $instance['title_sub'] = strip_tags($new_instance['title_sub']);
-		$instance['count'] = strip_tags($new_instance['count']);
-		// Loop through item fields
-        for ($i = 1; $i <= self::MAX_COUNT; $i++) {
-			$instance['name-'.$i] = strip_tags($new_instance['name-'.$i]);
-			$instance['image-'.$i] = esc_url($new_instance['image-'.$i]);
-			$instance['image-'.$i."_alt"] = $instance['name-'.$i];
-			$instance['text-'.$i] = strip_tags($new_instance['text-'.$i]);
-			$instance['url-'.$i] = esc_url_raw($new_instance['url-'.$i]);
-            $instance['new_tab-'.$i] = strip_tags($new_instance['new_tab-'.$i]);
-		}
+            // Title field
+            $instance['title'] = strip_tags($new_instance['title']);
+            // Sub-title field
+            $instance['title_sub'] = strip_tags($new_instance['title_sub']);
+            // Item count field
+            $instance['count'] = strip_tags($new_instance['count']);
+            // Regex criteria, but auto-escape slash characters so they don't mess up the regex match (the system will think the first slash denotes the end of the pattern)
+            $instance['regex_criteria'] = str_replace("/","\/",$new_instance['regex_criteria']);
+            // Loop through item fields
+            for ($i = 1; $i <= self::MAX_COUNT; $i++) {
+                $instance['name-'.$i] = strip_tags($new_instance['name-'.$i]);
+                $instance['image-'.$i] = esc_url($new_instance['image-'.$i]);
+                $instance['image-'.$i."_alt"] = $instance['name-'.$i];
+                $instance['text-'.$i] = strip_tags($new_instance['text-'.$i]);
+                $instance['url-'.$i] = esc_url_raw($new_instance['url-'.$i]);
+                $instance['new_tab-'.$i] = strip_tags($new_instance['new_tab-'.$i]);
+            }
         
         // Return
 		return $instance;
