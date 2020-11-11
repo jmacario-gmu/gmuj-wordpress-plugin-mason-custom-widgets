@@ -38,6 +38,13 @@ class gmuj_widget_recent_posts extends WP_Widget {
             $category = isset($instance['category']) ? esc_attr($instance['category']) : '';
             // Number
                 $number = isset( $instance['number'] ) ? intval( $instance['number'] ) : 4;
+            // Regex criteria
+            if (isset($instance['regex_criteria'])) {
+                // If so, store it
+                $regex_criteria = $instance['regex_criteria'];
+                // But first fix the auto-escaping of slash chars we did when saving
+                $regex_criteria = str_replace("\/","/",$regex_criteria);
+            }
         
         // Display input fields
             // Title
@@ -72,6 +79,16 @@ class gmuj_widget_recent_posts extends WP_Widget {
             </p>
             <?php
 
+            // Regex criteria
+            ?>
+            <p>
+                <label for="<?php echo $this->get_field_id('regex_criteria'); ?>">Regex criteria for display: </label>
+                <input type="text" id="<?php echo $this->get_field_id('regex_criteria'); ?>" name="<?php echo $this->get_field_name('regex_criteria'); ?>" value="<?php echo $regex_criteria ?>" />
+                <br />
+                This widget will only appear if the regular expression provided matches the URL slug of the current page. Leaving this blank will result in this widget appearing on all pages.
+            </p>
+            <?php
+
     }
 
     /**
@@ -80,10 +97,16 @@ class gmuj_widget_recent_posts extends WP_Widget {
     function update($new_instance, $old_instance) {
 
         // Sanitize and store widget fields
-        $instance['title']     = strip_tags($new_instance['title']);
-        $instance['title_sub'] = strip_tags($new_instance['title_sub']);
-        $instance['number']    = strip_tags($new_instance['number']);
-        $instance['category']  = strip_tags($new_instance['category']);
+            // Title
+            $instance['title']     = strip_tags($new_instance['title']);
+            // Subtitle
+            $instance['title_sub'] = strip_tags($new_instance['title_sub']);
+            // Number of posts
+            $instance['number']    = strip_tags($new_instance['number']);
+            // Category of posts
+            $instance['category']  = strip_tags($new_instance['category']);
+            // Regex criteria, but auto-escape slash characters so they don't mess up the regex match (the system will think the first slash denotes the end of the pattern)
+            $instance['regex_criteria'] = str_replace("/","\/",$new_instance['regex_criteria']);
 
         // Return
         return $instance;
@@ -117,69 +140,81 @@ class gmuj_widget_recent_posts extends WP_Widget {
             'category_name'       => $category
         ));
 
-        // Begin widget output
-        echo $args['before_widget'];
+        // Get current page URL slug
+        global $wp;
+        $current_slug = add_query_arg( array(), $wp->request );
 
-        // Do we have posts to display?
-        if ($r->have_posts()){
+        // Get regex criteria
+        $regex_criteria=$instance['regex_criteria'];
 
-            // Output widget title, if it is not empty
-            if (!empty($instance['title'])) {
-                echo $args['before_title'];
-                echo $instance['title'];
-                echo $args['after_title'];
-            }
+        // Does the regex criteria match the current URL slug?
+        if ( preg_match('/'.$regex_criteria.'/i', $current_slug) ) {
 
-            // Output widget sub-title, if it is not empty
-            if (!empty($instance['title_sub'])) {
-                echo '<p class="widget-title-sub">'.$instance['title_sub'].'</p>';
-            }
+            // Begin widget output
+            echo $args['before_widget'];
 
-            // Begin grid container (to hold the highlight list items)
-            ?>
-            <div class='widget_gmuj_widget_highlight_list_grid_container'>
+            // Do we have posts to display?
+            if ($r->have_posts()){
 
-                <?php 
-                // Loop through posts
-                while ($r->have_posts()): $r->the_post(); 
+                // Output widget title, if it is not empty
+                if (!empty($instance['title'])) {
+                    echo $args['before_title'];
+                    echo $instance['title'];
+                    echo $args['after_title'];
+                }
 
-                    // Begin post link
-                    echo'<a class="widget_gmuj_widget_highlight_list_item" href="'.get_permalink(get_page_by_path(get_post_field('post_name'))).'">';
+                // Output widget sub-title, if it is not empty
+                if (!empty($instance['title_sub'])) {
+                    echo '<p class="widget-title-sub">'.$instance['title_sub'].'</p>';
+                }
 
-                    // Do we have an image for this post?
-                        if (has_post_thumbnail()) { 
-                            // If so, output it
-                            //the_post_thumbnail(); 
-                            the_post_thumbnail('post-thumbnail', ['class' => 'widget_gmuj_widget_highlight_list_item_image']);
-                        } else {
-                            // If not, get the path of a default image
-                                // First, choose a random brand color
-                                $random_color=gmuj_random_brand_color();
-                                // Next, generate the image file path using the random color
-                                $image=plugins_url().'/gmuj-wordpress-plugin-mason-custom-widgets/images/mason-default-image-'.$random_color.'-640x480.png';
-                                // Output the HTML image tag
-                                echo "<img class='widget_gmuj_widget_highlight_list_item_image' src='". $image. "' alt='' />";
-                        }
-
-                    // Output post title
-                    echo'<h4 class="highlight-name">'.get_the_title().'</h4>';
-
-                    // Output posr excerpt
-                    echo'<div class="highlight-description">'.get_the_excerpt().'</div>';
-
-                    // End post link
-                    echo'</a>';
-
-                endwhile; // End post loop
+                // Begin grid container (to hold the highlight list items)
                 ?>
+                <div class='widget_gmuj_widget_highlight_list_grid_container'>
 
-            </div>
+                    <?php
+                    // Loop through posts
+                    while ($r->have_posts()): $r->the_post();
 
-            <?php
-        }
+                        // Begin post link
+                        echo'<a class="widget_gmuj_widget_highlight_list_item" href="'.get_permalink(get_page_by_path(get_post_field('post_name'))).'">';
 
-        // Finish widget output
-        echo $args['after_widget'];
+                        // Do we have an image for this post?
+                            if (has_post_thumbnail()) {
+                                // If so, output it
+                                //the_post_thumbnail();
+                                the_post_thumbnail('post-thumbnail', ['class' => 'widget_gmuj_widget_highlight_list_item_image']);
+                            } else {
+                                // If not, get the path of a default image
+                                    // First, choose a random brand color
+                                    $random_color=gmuj_random_brand_color();
+                                    // Next, generate the image file path using the random color
+                                    $image=plugins_url().'/gmuj-wordpress-plugin-mason-custom-widgets/images/mason-default-image-'.$random_color.'-640x480.png';
+                                    // Output the HTML image tag
+                                    echo "<img class='widget_gmuj_widget_highlight_list_item_image' src='". $image. "' alt='' />";
+                            }
+
+                        // Output post title
+                        echo'<h4 class="highlight-name">'.get_the_title().'</h4>';
+
+                        // Output posr excerpt
+                        echo'<div class="highlight-description">'.get_the_excerpt().'</div>';
+
+                        // End post link
+                        echo'</a>';
+
+                    endwhile; // End post loop
+                    ?>
+
+                </div>
+
+                <?php
+            }
+
+            // Finish widget output
+            echo $args['after_widget'];
+
+    }
 
     }
 
