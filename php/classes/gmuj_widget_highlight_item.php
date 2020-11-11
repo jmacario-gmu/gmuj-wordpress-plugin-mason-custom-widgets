@@ -78,34 +78,49 @@ class gmuj_widget_highlight_item extends WP_Widget_Custom_HTML {
 		// Do we have an image?
 		$has_image = !empty($instance['image']);
 
-		// Begin widget output
-		echo $args['before_widget'];
 
-		// Output widget title
-		echo $args['before_title'];
-		echo $instance['title'];
-		echo $args['after_title'];
-		
-		// Output image, if one is specified
-		if ($has_image) {
 
-			// Get image float setting and use it to set the variable specifiying the appropriate HTML class
-			if ($instance['float']=='left') {
-				$float='highlight-item-image-left';
-			} else {
-				$float='highlight-item-image-right';
+        // Get current page URL slug
+        global $wp;
+        $current_slug = add_query_arg( array(), $wp->request );
+
+        // Get regex criteria
+        $regex_criteria=$instance['regex_criteria'];
+
+        // Does the regex criteria match the current URL slug?
+        if ( preg_match('/'.$regex_criteria.'/i', $current_slug) ) {
+
+			// Begin widget output
+			echo $args['before_widget'];
+
+			// Output widget title
+			echo $args['before_title'];
+			echo $instance['title'];
+			echo $args['after_title'];
+
+			// Output image, if one is specified
+			if ($has_image) {
+
+				// Get image float setting and use it to set the variable specifiying the appropriate HTML class
+				if ($instance['float']=='left') {
+					$float='highlight-item-image-left';
+				} else {
+					$float='highlight-item-image-right';
+				}
+
+				// Output image, along with specified float class
+				echo $this->gmuj_widget_image_render($instance, "highlight-item-image $float");
+
 			}
 
-			// Output image, along with specified float class
-			echo $this->gmuj_widget_image_render($instance, "highlight-item-image $float");
+			// Output widget content
+			echo $content;
+
+			// Finish widget output
+			echo $args['after_widget'];
 
 		}
 
-		// Output widget content
-		echo $content;
-
-		// Finish widget output
-		echo $args['after_widget'];
     }
 
 	/**
@@ -128,6 +143,15 @@ class gmuj_widget_highlight_item extends WP_Widget_Custom_HTML {
 	            $float = 'right';
 	        }
 
+            // Regex criteria
+            if (isset($instance['regex_criteria'])) {
+                // If so, store it
+                $regex_criteria = $instance['regex_criteria'];
+                // But first fix the auto-escaping of slash chars we did when saving
+                $regex_criteria = str_replace("\/","/",$regex_criteria);
+            }
+
+
         // Image float
         ?>
         <p>
@@ -145,6 +169,15 @@ class gmuj_widget_highlight_item extends WP_Widget_Custom_HTML {
         </p>
         <?php
 
+        // Regex criteria
+        ?>
+        <p>
+            <label for="<?php echo $this->get_field_id('regex_criteria'); ?>">Regex criteria for display: </label>
+            <input type="text" id="<?php echo $this->get_field_id('regex_criteria'); ?>" name="<?php echo $this->get_field_name('regex_criteria'); ?>" value="<?php echo $regex_criteria ?>" />
+            <br />
+            This widget will only appear if the regular expression provided matches the URL slug of the current page. Leaving this blank will result in this widget appearing on all pages.
+        </p>
+        <?php
 
 	}
 	 
@@ -160,6 +193,8 @@ class gmuj_widget_highlight_item extends WP_Widget_Custom_HTML {
 
 			// Float
 			$instance['float'] = strip_tags($new_instance['float']);
+            // Regex criteria, but auto-escape slash characters so they don't mess up the regex match (the system will think the first slash denotes the end of the pattern)
+            $instance['regex_criteria'] = str_replace("/","\/",$new_instance['regex_criteria']);
 
 			// Update custom image trait fields
 			$instance = array_merge($instance,$this->gmuj_widget_image_update($new_instance,$old_instance));
