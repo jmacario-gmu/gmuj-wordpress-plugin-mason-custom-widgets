@@ -48,13 +48,13 @@ class gmuj_widget_cta_list extends WP_Widget {
         // Does the regex criteria match the current URL slug?
         if ( preg_match('/'.$regex_criteria.'/i', $current_slug) ) {
 
-        // Begin widget output
-        echo $args['before_widget'];
+            // Begin widget output
+            echo $args['before_widget'];
 
-        // Output widget title
-        echo $args['before_title'];
-        echo $instance['title'];
-        echo $args['after_title'];
+            // Output widget title
+            echo $args['before_title'];
+            echo $instance['title'];
+            echo $args['after_title'];
 
             // Output widget sub-title, if it is not empty
             if (!empty($instance['title_sub'])) {
