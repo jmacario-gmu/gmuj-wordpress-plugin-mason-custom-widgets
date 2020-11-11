@@ -32,34 +32,46 @@ class gmuj_widget_cta_menu extends WP_Widget{
 		// Do we have a menu specified?
 		if (isset($instance['related_menu'])) {
 
-			// Begin widget output
-			echo $args['before_widget'];
+	        // Get current page URL slug
+	        global $wp;
+	        $current_slug = add_query_arg( array(), $wp->request );
 
-			// Output widget title, if it is not empty
-			if (!empty($instance['title'])) {
-				echo $args['before_title'];
-				echo $instance['title'];
-				echo $args['after_title'];
+	        // Get regex criteria
+	        $regex_criteria=$instance['regex_criteria'];
+
+	        // Does the regex criteria match the current URL slug?
+	        if ( preg_match('/'.$regex_criteria.'/i', $current_slug) ) {
+
+				// Begin widget output
+				echo $args['before_widget'];
+
+				// Output widget title, if it is not empty
+				if (!empty($instance['title'])) {
+					echo $args['before_title'];
+					echo $instance['title'];
+					echo $args['after_title'];
+				}
+
+				// Output widget sub-title, if it is not empty
+				if (!empty($instance['title_sub'])) {
+					echo '<p class="widget-title-sub">'.$instance['title_sub'].'</p>';
+				}
+
+				// Output call-to-action menu
+				wp_nav_menu(
+					array(
+						'container' => false,
+						'menu' => $instance['related_menu'],
+						'menu_class' => 'cta-menu',
+						'depth'=> '1',
+						'link_after' => ' <span class="fa fa-chevron-circle-right"></span>' // Add FontAwesome right arrow after link text
+					)
+				);
+
+				// Finish widget output
+				echo $args['after_widget'];
+
 			}
-
-			// Output widget sub-title, if it is not empty
-			if (!empty($instance['title_sub'])) {
-				echo '<p class="widget-title-sub">'.$instance['title_sub'].'</p>';
-			}
-
-			// Output call-to-action menu
-			wp_nav_menu(
-				array(
-					'container' => false,
-					'menu' => $instance['related_menu'],
-					'menu_class' => 'cta-menu',
-					'depth'=> '1',
-					'link_after' => ' <span class="fa fa-chevron-circle-right"></span>' // Add FontAwesome right arrow after link text
-				)
-			);
-
-			// Finish widget output
-			echo $args['after_widget'];
 
 		}
 
@@ -92,6 +104,14 @@ class gmuj_widget_cta_menu extends WP_Widget{
 				// If so, store it
 				$related_menu = $instance[ 'related_menu' ];
 			}
+
+            // Regex criteria
+            if (isset($instance['regex_criteria'])) {
+                // If so, store it
+                $regex_criteria = $instance['regex_criteria'];
+                // But first fix the auto-escaping of slash chars we did when saving
+                $regex_criteria = str_replace("\/","/",$regex_criteria);
+            }
 
 		// Display input fields
 			// Title
@@ -126,6 +146,16 @@ class gmuj_widget_cta_menu extends WP_Widget{
 			</p>
 			<?php
 
+            // Regex criteria
+            ?>
+            <p>
+                <label for="<?php echo $this->get_field_id('regex_criteria'); ?>">Regex criteria for display: </label>
+                <input type="text" id="<?php echo $this->get_field_id('regex_criteria'); ?>" name="<?php echo $this->get_field_name('regex_criteria'); ?>" value="<?php echo $regex_criteria ?>" />
+                <br />
+                This widget will only appear if the regular expression provided matches the URL slug of the current page. Leaving this blank will result in this widget appearing on all pages.
+            </p>
+            <?php
+
 	}
 
 	/**
@@ -140,6 +170,8 @@ class gmuj_widget_cta_menu extends WP_Widget{
 			$instance['title_sub'] = strip_tags($new_instance['title_sub']);
 			// Related menu field
 			$instance['related_menu'] = strip_tags($new_instance['related_menu']);
+            // Regex criteria, but auto-escape slash characters so they don't mess up the regex match (the system will think the first slash denotes the end of the pattern)
+            $instance['regex_criteria'] = str_replace("/","\/",$new_instance['regex_criteria']);
 
 		// Return
 		return $instance;
