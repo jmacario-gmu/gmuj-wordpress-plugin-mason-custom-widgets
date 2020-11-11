@@ -124,6 +124,9 @@ class gmuj_widget_regex_content extends WP_Widget_Custom_HTML {
 	 */
 	public function form($instance) {
 
+		// Display standard custom HTML widget form
+		parent::form($instance);
+
         // Get existing field values, or set default values
 
 			// Subtitle
@@ -158,9 +161,6 @@ class gmuj_widget_regex_content extends WP_Widget_Custom_HTML {
             This widget will only appear if the regular expression provided matches the URL slug of the current page. Leaving this blank will result in this widget appearing on all pages.
         </p>
         <?php
-
-		// Display standard custom HTML widget form
-		parent::form($instance);
 
 	}
 	 
