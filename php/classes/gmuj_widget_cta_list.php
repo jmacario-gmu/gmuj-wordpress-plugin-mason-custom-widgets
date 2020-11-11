@@ -26,7 +26,7 @@ class gmuj_widget_cta_list extends WP_Widget {
         array('description' => 'Display call-to-action buttons with titles and icons.') 
         );
     }
-   
+
 	/**
 	 * function to render the widget (front-end)
 	 */
@@ -38,57 +38,70 @@ class gmuj_widget_cta_list extends WP_Widget {
         }
         $count = isset($instance['count'])? strip_tags($instance['count']) : '';
 
-		// Begin widget output
-		echo $args['before_widget'];
+        // Get current page URL slug
+        global $wp;
+        $current_slug = add_query_arg( array(), $wp->request );
 
-		// Output widget title
-		echo $args['before_title'];
-		echo $instance['title'];
-		echo $args['after_title'];
+        // Get regex criteria
+        $regex_criteria=$instance['regex_criteria'];
 
-        // Output widget sub-title, if it is not empty
-        if (!empty($instance['title_sub'])) {
-            echo '<p class="widget-title-sub">'.$instance['title_sub'].'</p>';
-        }
+        // Does the regex criteria match the current URL slug?
+        if ( preg_match('/'.$regex_criteria.'/i', $current_slug) ) {
 
-        // Begin list element (to hold the cta list items)
-        echo '<ul class="cta-menu">';
+        // Begin widget output
+        echo $args['before_widget'];
 
-        // Loop through cta list items
-        for ($i = 1; $i <= $count; $i++) {
+        // Output widget title
+        echo $args['before_title'];
+        echo $instance['title'];
+        echo $args['after_title'];
 
-            // Begin CTA list item, taking into account whether an image has been selected
-            if (!empty($cta_list_items['image-'.$i])) {
-                echo '<li style="background-image:url(\'/wp-content/plugins/gmuj-wordpress-plugin-mason-custom-widgets/images/'.$cta_list_items['image-'.$i].'\')">';
-            } else {
-                echo '<li>';
+            // Output widget sub-title, if it is not empty
+            if (!empty($instance['title_sub'])) {
+                echo '<p class="widget-title-sub">'.$instance['title_sub'].'</p>';
             }
-           
-            // Begin cta link
-            echo'<a href="'.$cta_list_items['url-'.$i].'">';
 
-            // Output cta title
-            echo $cta_list_items['name-'.$i];
+            // Begin list element (to hold the cta list items)
+            echo '<ul class="cta-menu">';
 
-            // Add icon
-            echo ' <span class="fa fa-chevron-circle-right"></span>';
+            // Loop through cta list items
+            for ($i = 1; $i <= $count; $i++) {
 
-            // End cta link
-            echo'</a>';
+                // Begin CTA list item, taking into account whether an image has been selected
+                if (!empty($cta_list_items['image-'.$i])) {
+                    echo '<li style="background-image:url(\'/wp-content/plugins/gmuj-wordpress-plugin-mason-custom-widgets/images/'.$cta_list_items['image-'.$i].'\')">';
+                } else {
+                    echo '<li>';
+                }
 
-            // End cta link
-            echo'</li>';
+                // Begin cta link
+                echo'<a href="'.$cta_list_items['url-'.$i].'">';
+
+                // Output cta title
+                echo $cta_list_items['name-'.$i];
+
+                // Add icon
+                echo ' <span class="fa fa-chevron-circle-right"></span>';
+
+                // End cta link
+                echo'</a>';
+
+                // End cta link
+                echo'</li>';
+
+            }
+
+            // End list element
+            echo '</ul>';
+            ?>
+
+            <?php
+
+            // Finish widget output
+            echo $args['after_widget'];
 
         }
 
-        // End list element
-        echo '</ul>';
-        ?>
-
-	    <?php 
-
-		// Finish widget output
-		echo $args['after_widget'];
     }
 
 
@@ -131,29 +144,39 @@ class gmuj_widget_cta_list extends WP_Widget {
 
         <?php
 
-        // Title
-        // Do we have a title?
-        if (isset($instance['title'])) {
-            // If so, store it
-            $title = $instance['title'];
-        }
+        // Get existing field values, or set default values
 
-        // Sub-Title
-        // Do we have a subtitle?
-        if (isset($instance['title_sub'])) {
-            // If so, store it
-            $title_sub = $instance['title_sub'];
-        }
+            // Title
+            // Do we have a title?
+            if (isset($instance['title'])) {
+                // If so, store it
+                $title = $instance['title'];
+            }
 
-        // Count of items
-        // Do we have a count?
-        if (isset($instance['count'])) {
-            // If so, store it
-            $count = $instance['count'];
-        } else { 
-            // If not, set a default count
-            $count = 4;
-        }
+            // Sub-Title
+            // Do we have a subtitle?
+            if (isset($instance['title_sub'])) {
+                // If so, store it
+                $title_sub = $instance['title_sub'];
+            }
+
+            // Count of items
+            // Do we have a count?
+            if (isset($instance['count'])) {
+                // If so, store it
+                $count = $instance['count'];
+            } else {
+                // If not, set a default count
+                $count = 4;
+            }
+
+            // Regex criteria
+            if (isset($instance['regex_criteria'])) {
+                // If so, store it
+                $regex_criteria = $instance['regex_criteria'];
+                // But first fix the auto-escaping of slash chars we did when saving
+                $regex_criteria = str_replace("\/","/",$regex_criteria);
+            }
 
         // Display input fields
             // Title
@@ -192,6 +215,16 @@ class gmuj_widget_cta_list extends WP_Widget {
             // Item count change message
             ?>
             <div class="gmuj-widget-cta-list-item-count-change-message">The count has changed. Please save to update visible fields.</div>
+            <?php
+
+            // Regex criteria
+            ?>
+            <p>
+                <label for="<?php echo $this->get_field_id('regex_criteria'); ?>">Regex criteria for display: </label>
+                <input type="text" id="<?php echo $this->get_field_id('regex_criteria'); ?>" name="<?php echo $this->get_field_name('regex_criteria'); ?>" value="<?php echo $regex_criteria ?>" />
+                <br />
+                This widget will only appear if the regular expression provided matches the URL slug of the current page. Leaving this blank will result in this widget appearing on all pages.
+            </p>
             <?php
 
             // Output cta items container
@@ -275,12 +308,14 @@ class gmuj_widget_cta_list extends WP_Widget {
 	public function update( $new_instance, $old_instance ) {
 
         // Sanitize and store widget fields
-          // Title field
-          $instance['title'] = strip_tags($new_instance['title']);
-          // Sub-title field
-          $instance['title_sub'] = strip_tags($new_instance['title_sub']);
-		  // Item count field
-          $instance['count'] = strip_tags($new_instance['count']);
+            // Title field
+            $instance['title'] = strip_tags($new_instance['title']);
+            // Sub-title field
+            $instance['title_sub'] = strip_tags($new_instance['title_sub']);
+            // Item count field
+            $instance['count'] = strip_tags($new_instance['count']);
+            // Regex criteria, but auto-escape slash characters so they don't mess up the regex match (the system will think the first slash denotes the end of the pattern)
+            $instance['regex_criteria'] = str_replace("/","\/",$new_instance['regex_criteria']);
             // Loop through item fields
             for ($i = 1; $i <= self::MAX_COUNT; $i++) {
                 $instance['name-'.$i] = strip_tags($new_instance['name-'.$i]);
