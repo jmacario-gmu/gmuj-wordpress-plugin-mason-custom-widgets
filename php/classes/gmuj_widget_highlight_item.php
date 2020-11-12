@@ -149,6 +149,8 @@ class gmuj_widget_highlight_item extends WP_Widget_Custom_HTML {
                 $regex_criteria = $instance['regex_criteria'];
                 // But first fix the auto-escaping of slash chars we did when saving
                 $regex_criteria = str_replace("\/","/",$regex_criteria);
+            } else {
+				$regex_criteria = '';
             }
 
 

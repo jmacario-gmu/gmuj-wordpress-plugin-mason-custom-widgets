@@ -89,6 +89,8 @@ class gmuj_widget_cta_menu extends WP_Widget{
 			if (isset( $instance['title'])) {
 				// If so, store it
 				$title = $instance['title'];
+			} else {
+				$title = '';
 			}
 
 			// Subtitle
@@ -96,6 +98,8 @@ class gmuj_widget_cta_menu extends WP_Widget{
 			if (isset( $instance['title_sub'])) {
 				// If so, store it
 				$title_sub = $instance['title_sub'];
+			} else {
+				$title_sub = '';
 			}
 
 			// Related menu
@@ -103,6 +107,8 @@ class gmuj_widget_cta_menu extends WP_Widget{
 			if (isset($instance['related_menu'])) {
 				// If so, store it
 				$related_menu = $instance[ 'related_menu' ];
+			} else {
+				$related_menu = '';
 			}
 
             // Regex criteria
@@ -111,6 +117,8 @@ class gmuj_widget_cta_menu extends WP_Widget{
                 $regex_criteria = $instance['regex_criteria'];
                 // But first fix the auto-escaping of slash chars we did when saving
                 $regex_criteria = str_replace("\/","/",$regex_criteria);
+            } else {
+				$regex_criteria = '';
             }
 
 		// Display input fields

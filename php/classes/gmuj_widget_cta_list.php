@@ -151,6 +151,8 @@ class gmuj_widget_cta_list extends WP_Widget {
             if (isset($instance['title'])) {
                 // If so, store it
                 $title = $instance['title'];
+            } else {
+                $title = '';
             }
 
             // Sub-Title
@@ -158,6 +160,8 @@ class gmuj_widget_cta_list extends WP_Widget {
             if (isset($instance['title_sub'])) {
                 // If so, store it
                 $title_sub = $instance['title_sub'];
+            } else {
+                $title_sub = '';
             }
 
             // Count of items
@@ -176,6 +180,8 @@ class gmuj_widget_cta_list extends WP_Widget {
                 $regex_criteria = $instance['regex_criteria'];
                 // But first fix the auto-escaping of slash chars we did when saving
                 $regex_criteria = str_replace("\/","/",$regex_criteria);
+            } else {
+                $regex_criteria = '';
             }
 
         // Display input fields

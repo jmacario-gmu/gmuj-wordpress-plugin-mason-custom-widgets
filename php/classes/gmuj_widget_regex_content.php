@@ -134,6 +134,8 @@ class gmuj_widget_regex_content extends WP_Widget_Custom_HTML {
 			if (isset( $instance['title_sub'])) {
 				// If so, store it
 				$title_sub = $instance['title_sub'];
+			} else {
+				$title_sub = '';
 			}
 
 			// Regex criteria
@@ -142,6 +144,8 @@ class gmuj_widget_regex_content extends WP_Widget_Custom_HTML {
 			    $regex_criteria = $instance['regex_criteria'];
 			    // But first fix the auto-escaping of slash chars we did when saving
 			    $regex_criteria = str_replace("\/","/",$regex_criteria);
+			} else {
+				$regex_criteria = '';
 			}
 
         // Display input fields
