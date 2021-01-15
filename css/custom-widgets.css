@@ -1,5 +1,9 @@
 /* Mason custom widgets */
 
+
+/* Shared - display list */
+@import 'custom-widgets-shared-display-list.css';
+
 /* Calls-to-action list */
 @import 'custom-widgets-cta-list.css';
 

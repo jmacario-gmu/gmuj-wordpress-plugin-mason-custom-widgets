@@ -67,13 +67,13 @@ class gmuj_widget_highlight_list extends WP_Widget {
             }
 
             // Begin grid container (to hold the highlight list items)
-            echo "<div class='widget_gmuj_widget_highlight_list_grid_container'>";
+            echo "<div class='widget_gmuj_widget_display_list_grid_container'>";
 
             // Loop through highlight list items
             for ($i = 1; $i <= $count; $i++) {
 
                 // Begin highlight link
-                echo '<a class="widget_gmuj_widget_highlight_list_item" ';
+                echo '<a class="widget_gmuj_widget_display_list_item" ';
                 echo 'href="'.$highlight_list_items['url-'.$i].'" ';
                 // Open link in new tab if specified
                 if($highlight_list_items['new_tab-'.$i] == 'true'){
@@ -82,14 +82,14 @@ class gmuj_widget_highlight_list extends WP_Widget {
                 echo '>';
 
                 // Output highlight image
-                echo $this->gmuj_widget_image_render( $instance, "widget_gmuj_widget_highlight_list_item_image", 'image-'.$i, false);
+                echo $this->gmuj_widget_image_render( $instance, "widget_gmuj_widget_display_list_item_image", 'image-'.$i, false);
 
                 // Output highlight title
-                echo'<h4 class="highlight-name">'.$highlight_list_items['name-'.$i].'</h4>';
+                echo'<h4 class="widget_gmuj_widget_display_list_item_name">'.$highlight_list_items['name-'.$i].'</h4>';
 
                 // Output highlight description
                 if (!empty($highlight_list_items['text-'.$i])){
-                    echo'<div class="highlight-description">'.$highlight_list_items['text-'.$i].'</div>';
+                    echo'<div class="widget_gmuj_widget_display_list_item_description">'.$highlight_list_items['text-'.$i].'</div>';
                 }
 
                 // End highlight link
