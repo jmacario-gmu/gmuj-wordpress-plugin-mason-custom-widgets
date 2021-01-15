@@ -5,23 +5,10 @@
 /* Default and small screens */
 
 
-/* Style calls-to-action widget title */
-.widget_gmuj_widget_cta_list h3.widget-title {
-
-}
-
-/* Style calls-to-action widget sub-title*/
-.widget_gmuj_widget_cta_list p.widget-title-sub {
-}
-
 /* Style calls-to-action widget sub-titles, other than when used on the homepage banner */
 ul.sidebar-homepage:not(#sidebar-homepage-banner) li.widget_gmuj_widget_cta_list p.widget-title-sub, 
 div.entry-content li.widget_gmuj_widget_cta_list p.widget-title-sub {
 	margin-top: -1em;
-	margin-bottom:2em;
-	text-align:center;
-	font-color:#006633 !important;
-	font-size:1.3em;
 }
 
 /* Style calls-to-action widget list */

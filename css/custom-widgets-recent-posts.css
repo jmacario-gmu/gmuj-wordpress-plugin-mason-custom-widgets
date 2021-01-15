@@ -4,6 +4,3 @@
 
 /* Default and small screens */
 @import 'custom-widgets-recent-posts-default.css';
-
-/* 700+ pixels */
-@import 'custom-widgets-recent-posts-700+.css' screen and (min-width: 700px);
