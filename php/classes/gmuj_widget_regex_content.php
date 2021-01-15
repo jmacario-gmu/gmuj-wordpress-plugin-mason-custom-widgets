@@ -84,7 +84,7 @@ class gmuj_widget_regex_content extends WP_Widget_Custom_HTML {
 		//echo '<p>Current URL slug: '.$current_slug.'</p>';
 
 		// Get regex criteria
-		$regex_criteria=$instance['regex_criteria'];
+        $regex_criteria=isset($instance['regex_criteria']) ? $instance['regex_criteria'] : '';
 
 		// Output widget regex content, if it is not empty
 		//if (!empty($instance['regex_criteria'])) {

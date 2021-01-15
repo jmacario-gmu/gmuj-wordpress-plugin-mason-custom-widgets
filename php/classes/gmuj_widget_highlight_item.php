@@ -85,7 +85,7 @@ class gmuj_widget_highlight_item extends WP_Widget_Custom_HTML {
         $current_slug = add_query_arg( array(), $wp->request );
 
         // Get regex criteria
-        $regex_criteria=$instance['regex_criteria'];
+        $regex_criteria=isset($instance['regex_criteria']) ? $instance['regex_criteria'] : '';
 
         // Does the regex criteria match the current URL slug?
         if ( preg_match('/'.$regex_criteria.'/i', $current_slug) ) {
