@@ -5,7 +5,7 @@
 /* Default and small screens */
 
 
-/* Style highlight list container */
+/* Style display list container */
 .widget_gmuj_widget_display_list_grid_container {
     display: grid;
     grid-gap: 0.5em;
@@ -13,7 +13,7 @@
     text-align: center;
 }
 
-/* Style highlight links */
+/* Style display list links */
 a.widget_gmuj_widget_display_list_item {
     text-align: center;
     box-shadow: 0 2px 2px rgba(0,0,0,0.15);
@@ -26,14 +26,15 @@ a.widget_gmuj_widget_display_list_item {
     border-radius: 10px;
     margin: 0 auto;
     text-decoration: none;
+    padding-bottom:1em;
 }
 
-/* Style highlight links on hover */
+/* Style display list links on hover */
 a.widget_gmuj_widget_display_list_item:hover {
     box-shadow: 0 2px 15px 2px rgba(0,0,0,0.15);
 }
 
-/* Style highlight image */
+/* Style display list item image */
 .widget_gmuj_widget_display_list_item_image {
     width: 255px;
     height: 190px;
@@ -42,20 +43,14 @@ a.widget_gmuj_widget_display_list_item:hover {
     object-position: center top;
 }
 
-/* Style highlight name heading */
-h4.widget_gmuj_widget_display_list_item_name {
-    min-height:2em;
-    margin: 0.5em;
-    padding-bottom: 1em;
-    font-size:1.1em;
+/* Style display list item name heading */
+.widget_gmuj_widget_display_list_grid_container h4.widget_gmuj_widget_display_list_item_name {
+    margin: 1.5em 0.5em 0;
+    padding-bottom: 0.5em;
+    font-size:1.2em;
 }
 
-/* Style highlight name heading on hover */
-h4.widget_gmuj_widget_display_list_item_name:hover {
-    text-decoration: underline;
-}
-
-/* Style highlight description */
+/* Style display list item description */
 .widget_gmuj_widget_display_list_item_description {
     text-align: center !important;
     position: absolute;
@@ -78,7 +73,7 @@ h4.widget_gmuj_widget_display_list_item_name:hover {
     filter: alpha(opacity=0);
 }
 
-/* Style highlight description for when the whole highlight item is hovered-over */
+/* Style display list item description for when the whole display list item is hovered-over */
 a.widget_gmuj_widget_display_list_item:hover .widget_gmuj_widget_display_list_item_description {
     top: 0px;
     background: rgba(34, 34, 34, 0.8) none repeat scroll 0% 0% !important;
