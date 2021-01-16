@@ -216,7 +216,10 @@ class gmuj_widget_recent_posts extends WP_Widget {
             // Finish widget output
             echo $args['after_widget'];
 
-    }
+        }
+
+        // Since we ran another query inside the regular WordPress loop, reset the post global to the current post in the main query
+        wp_reset_postdata();
 
     }
 
