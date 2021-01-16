@@ -1,0 +1,14 @@
+/* Mason custom widgets */
+
+/* Person list */
+
+/* Default and small screens */
+
+
+/* Style person title heading */
+a.widget_gmuj_widget_display_list_item h4.person-title {
+    min-height:2em;
+    margin: 0.5em;
+    padding-bottom: 1em;
+    font-size:1em;
+}

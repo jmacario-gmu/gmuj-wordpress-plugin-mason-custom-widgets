@@ -47,6 +47,8 @@ function gmuj_load_and_register_custom_widgets() {
 		require('php/classes/gmuj_widget_alert_ribbon.php');
 		// Regex content
 		require('php/classes/gmuj_widget_regex_content.php');
+        // people list
+        require('php/classes/gmuj_widget_people_list.php');
 
 	// Register custom widgets
 		// Call-to-action list
@@ -63,6 +65,8 @@ function gmuj_load_and_register_custom_widgets() {
 		register_widget('gmuj_widget_alert_ribbon');
 		// Regex content
 		register_widget('gmuj_widget_regex_content');
+		// People list
+		register_widget('gmuj_widget_people_list');
 
 }
 
