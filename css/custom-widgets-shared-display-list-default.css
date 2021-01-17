@@ -24,7 +24,7 @@ a.widget_gmuj_widget_display_list_item {
     overflow: hidden;
     position: relative;
     border-radius: 10px;
-    margin: 0 auto;
+    margin: 0 auto 1em;
     text-decoration: none;
     padding-bottom:1em;
 }
@@ -36,11 +36,12 @@ a.widget_gmuj_widget_display_list_item:hover {
 
 /* Style display list item image */
 .widget_gmuj_widget_display_list_item_image {
+    display:block !important;
     width: 255px;
     height: 190px;
     margin-bottom: 1em;
     object-fit: cover;
-    object-position: center top;
+    object-position: center;
 }
 
 /* Style display list item name heading */
