@@ -149,6 +149,8 @@ class gmuj_widget_people_list extends WP_Widget {
                     'post_status'         => 'publish',
                     'posts_per_page'      => $number_of_posts,
                     'ignore_sticky_posts' => 1,
+                    'meta_key'            => 'gmuj_name_last',
+                    'orderby'             => array( 'meta_value' => 'ASC')
                 ));            
         } else {
             //Query for all people
@@ -158,6 +160,8 @@ class gmuj_widget_people_list extends WP_Widget {
                     'post_status'         => 'publish',
                     'posts_per_page'      => $number_of_posts,
                     'ignore_sticky_posts' => 1,
+                    'meta_key'            => 'gmuj_name_last',
+                    'orderby'             => array( 'meta_value' => 'ASC')
                 )); 
         }
 
