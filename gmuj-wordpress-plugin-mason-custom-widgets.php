@@ -14,9 +14,9 @@
 
 
 // Exit if this file is called directly.
-if (!defined('WPINC')) {
-	die;
-}
+	if (!defined('WPINC')) {
+		die;
+	}
 
 // Set up auto-updates
 	require 'plugin-update-checker/plugin-update-checker.php';
