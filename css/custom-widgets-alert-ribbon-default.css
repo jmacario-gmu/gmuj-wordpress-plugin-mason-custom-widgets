@@ -13,7 +13,7 @@
     padding: .25em 1em;
     border-top: 3px solid #fc3;
     position: relative;
-    z-index: 9998;
+    z-index: 999;
     transition: height 0.5s;
     overflow: hidden;
 }
