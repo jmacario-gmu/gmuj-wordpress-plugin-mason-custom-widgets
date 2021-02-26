@@ -13,7 +13,7 @@
     padding: .25em 1em;
     border-top: 3px solid #fc3;
     position: relative;
-    z-index: 998;
+    z-index: 1;
     transition: height 0.5s;
     overflow: hidden;
 }
@@ -38,7 +38,7 @@ input[type="checkbox"].gmuj_alert_ribbon_toggle{
 }
 label.gmuj_alert_ribbon_toggle_label{
 	position: absolute;
-	z-index: 999;
+	z-index: 2;
 	right: 0px;
 	width: 100px;
 	height: 50px;
