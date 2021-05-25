@@ -1,9 +1,9 @@
 === Mason WordPress: Mason Custom Widgets ===
 Contributors: Jan Macario, Ryan LeBreton
 Requires at least: 4.7
-Tested up to: 5.6
+Tested up to: 5.7
 Requires PHP: 7.0
-Stable tag: 1.0
+Stable tag: 1.0.1
 
 Plugin which provides Mason-specific custom WordPress widgets.
 
