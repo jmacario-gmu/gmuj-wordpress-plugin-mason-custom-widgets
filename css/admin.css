@@ -1,6 +1,9 @@
 /* Admin styles */
 
 
+/* Default admin styles */
+@import 'admin-default.css';
+
 /* Widget image select field */
 @import 'admin-widget-field-image-select.css';
 

@@ -231,7 +231,7 @@ class gmuj_widget_highlight_list extends WP_Widget {
 
             // Regex criteria
             ?>
-            <p>
+            <p class="regex_criteria">
                 <label for="<?php echo $this->get_field_id('regex_criteria'); ?>">Display this widget on which URLs (regex): </label>
                 <input class="widefat" type="text" id="<?php echo $this->get_field_id('regex_criteria'); ?>" name="<?php echo $this->get_field_name('regex_criteria'); ?>" value="<?php echo $regex_criteria ?>" />
                 <br />

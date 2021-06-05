@@ -1,0 +1,7 @@
+/* Admin styles */
+
+/* Default and small screens */
+
+
+/* Hide regex criteria section if the widget is in a homepage widget area */
+div[id^="sidebar-homepage"] .regex_criteria {display: none;} /* divs with an ID that begins with sidebar-homepage */
