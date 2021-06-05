@@ -91,8 +91,9 @@ class gmuj_widget_regex_content extends WP_Widget_Custom_HTML {
 		//	echo '<p>Regex criteria: '.$instance['regex_criteria'].'</p>';
 		//}
 
-		// Does the regex criteria match the current URL slug?
-		if ( preg_match('/'.$regex_criteria.'/i', $current_slug) ) {
+        // Does the regex criteria match the current URL slug?
+        // OR is this a homepage widget area, in which case we should display the widget regardless of the regex criteria
+        if ( preg_match('/sidebar-homepage/i', $args['id']) || preg_match('/'.$regex_criteria.'/i', $current_slug) ) {
 
 			// Begin widget output
 			echo $args['before_widget'];
