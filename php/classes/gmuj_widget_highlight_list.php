@@ -12,7 +12,7 @@ class gmuj_widget_highlight_list extends WP_Widget {
     use gmuj_widget_image;
     
     // Set maximum number of highlight list items
-    const MAX_COUNT = 12;
+    const MAX_COUNT = 16;
 
 	/**
 	 * function to instantiate widget class
