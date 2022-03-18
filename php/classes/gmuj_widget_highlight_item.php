@@ -94,10 +94,12 @@ class gmuj_widget_highlight_item extends WP_Widget_Custom_HTML {
 			// Begin widget output
 			echo $args['before_widget'];
 
-			// Output widget title
-			echo $args['before_title'];
-			echo $instance['title'];
-			echo $args['after_title'];
+            // Output widget title, if it is not empty
+            if (!empty($instance['title'])) {
+                echo $args['before_title'];
+                echo $instance['title'];
+                echo $args['after_title'];
+            }
 
 			// Output image, if one is specified
 			if ($has_image) {

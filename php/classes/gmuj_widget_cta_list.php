@@ -52,10 +52,12 @@ class gmuj_widget_cta_list extends WP_Widget {
             // Begin widget output
             echo $args['before_widget'];
 
-            // Output widget title
-            echo $args['before_title'];
-            echo $instance['title'];
-            echo $args['after_title'];
+            // Output widget title, if it is not empty
+            if (!empty($instance['title'])) {
+                echo $args['before_title'];
+                echo $instance['title'];
+                echo $args['after_title'];
+            }
 
             // Output widget sub-title, if it is not empty
             if (!empty($instance['title_sub'])) {
