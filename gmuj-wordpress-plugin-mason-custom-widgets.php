@@ -9,7 +9,7 @@
  * Author:            Jan Macario
  * Plugin URI:        https://github.com/jmacario-gmu/gmuj-wordpress-plugin-mason-custom-widgets
  * Description:       Mason WordPress plugin which implements Mason-specific custom widgets.
- * Version:           1.0.2
+ * Version:           1.0.3
  */
 
 
