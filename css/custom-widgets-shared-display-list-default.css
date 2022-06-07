@@ -72,6 +72,7 @@ a.widget_gmuj_widget_display_list_item:hover {
     transition-delay: 0s;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
     filter: alpha(opacity=0);
+    overflow-y: auto;
 }
 
 /* Style display list item description for when the whole display list item is hovered-over */
