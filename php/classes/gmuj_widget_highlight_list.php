@@ -194,7 +194,7 @@ class gmuj_widget_highlight_list extends WP_Widget {
             // Title
             ?>
             <p>
-                <label for="<?php echo $this->get_field_id('title'); ?>">Title</label>
+                <label for="<?php echo $this->get_field_id('title'); ?>">Title:</label>
                 <br />
                 <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" type="text" value="<?php echo $title ?>" name="<?php echo $this->get_field_name('title'); ?>" />
             </p>
