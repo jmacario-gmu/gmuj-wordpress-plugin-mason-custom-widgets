@@ -85,3 +85,27 @@ a.widget_gmuj_widget_display_list_item:hover .widget_gmuj_widget_display_list_it
     cursor: inherit;
     opacity: 100;
 }
+
+/* Style for small tiles version */
+
+/* Modifies grid and image size on homepage highlight list widget */
+div.widget_gmuj_widget_display_list_grid_container.smalltiles {
+  grid-template-columns: repeat(auto-fit, minmax(175px,1fr));
+}
+
+div.widget_gmuj_widget_display_list_grid_container.smalltiles img.widget_gmuj_widget_display_list_item_image {
+width: 150px;
+height: 150px;
+margin-left: auto;
+margin-right: auto;
+}
+
+div.widget_gmuj_widget_display_list_grid_container.smalltiles h4.widget_gmuj_widget_display_list_item_name {
+max-width: 150px;
+margin-top: 0;
+font-size: 1em;
+}
+
+div.widget_gmuj_widget_display_list_grid_container.smalltiles div.widget_gmuj_widget_display_list_item_description {
+    display: none;
+}
