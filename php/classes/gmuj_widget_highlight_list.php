@@ -68,7 +68,11 @@ class gmuj_widget_highlight_list extends WP_Widget {
             }
 
             // Begin grid container (to hold the highlight list items)
-            echo "<div class='widget_gmuj_widget_display_list_grid_container'>";
+            echo "<div class='widget_gmuj_widget_display_list_grid_container";
+            if ($instance['size']=='small') {
+                echo " smalltiles";
+            }
+            echo "'>";
 
             // Loop through highlight list items
             for ($i = 1; $i <= $count; $i++) {
@@ -180,6 +184,16 @@ class gmuj_widget_highlight_list extends WP_Widget {
                 $count = 4;
             }
 
+            // Size of items
+            // Do we have a size?
+            if (isset($instance['size'])) {
+                // If so, store it
+                $size = $instance['size'];
+            } else {
+                // If not, set a default size
+                $size = '';
+            }
+
             // Regex criteria
             if (isset($instance['regex_criteria'])) {
                 // If so, store it
@@ -222,6 +236,29 @@ class gmuj_widget_highlight_list extends WP_Widget {
                 ?>
                 </select>
             </p>
+            <?php
+
+           // Size of items
+            ?>
+            <p>
+                <label for="<?php echo $this->get_field_id('size'); ?>">Tile size? </label>
+                <select id="<?php echo $this->get_field_id('size'); ?>" name="<?php echo $this->get_field_name('size'); ?>">
+                    <option value="">Select size...</option>
+                    <?php
+                    // declare array of size options
+                       $size_options = array(
+                        array("name"=>"Default","value"=>""),
+                        array("name"=>"Small","value"=>"small"),
+                    );
+                    // Loop through size options
+                    foreach ($size_options as $size_option) {
+                        echo "<option value='".$size_option["value"]."'";
+                        if ($instance['size'] == $size_option["value"]) {echo " selected";}
+                        echo ">".$size_option["name"]."</option>";                            }
+                    ?>
+                </select>
+            </p>
+            <p>Note: item descriptions will not display if the small tile size is selected.</p>
             <?php
 
             // Item count change message
@@ -306,6 +343,8 @@ class gmuj_widget_highlight_list extends WP_Widget {
             $instance['title_sub'] = strip_tags($new_instance['title_sub']);
             // Item count field
             $instance['count'] = strip_tags($new_instance['count']);
+            // Item size field
+            $instance['size'] = strip_tags($new_instance['size']);
             // Regex criteria, but auto-escape slash characters so they don't mess up the regex match (the system will think the first slash denotes the end of the pattern)
             $instance['regex_criteria'] = str_replace("/","\/",$new_instance['regex_criteria']);
             // Loop through item fields
