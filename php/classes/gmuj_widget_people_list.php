@@ -203,7 +203,7 @@ class gmuj_widget_people_list extends WP_Widget {
                     while ($r->have_posts()): $r->the_post();
 
                         // Begin post link
-                        echo'<a class="widget_gmuj_widget_display_list_item" href="'.get_permalink(get_page_by_path(get_post_field('post_name'))).'">';
+                        echo'<a class="widget_gmuj_widget_display_list_item" href="'.get_permalink().'">';
 
                         // Do we have an image for this post?
                             if (has_post_thumbnail()) {
