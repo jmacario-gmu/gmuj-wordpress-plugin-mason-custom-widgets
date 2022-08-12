@@ -200,8 +200,8 @@ class gmuj_widget_recent_posts extends WP_Widget {
                         // Output post title
                         echo'<h4 class="widget_gmuj_widget_display_list_item_name">'.get_the_title().'</h4>';
 
-                        // Output posr excerpt
-                        echo'<div class="widget_gmuj_widget_display_list_item_description">'.get_the_excerpt().'</div>';
+                        // Output post excerpt
+                        echo'<div class="widget_gmuj_widget_display_list_item_description">'.wp_strip_all_tags( get_the_excerpt(), true ).'</div>';
 
                         // End post link
                         echo'</a>';
