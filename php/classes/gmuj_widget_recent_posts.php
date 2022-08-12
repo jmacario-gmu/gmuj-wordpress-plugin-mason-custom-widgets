@@ -171,7 +171,7 @@ class gmuj_widget_recent_posts extends WP_Widget {
                     echo '<p class="widget-title-sub">'.$instance['title_sub'].'</p>';
                 }
 
-                // Begin grid container (to hold the highlight list items)
+                // Begin grid container (to hold the recent post items)
                 ?>
                 <div class='widget_gmuj_widget_display_list_grid_container'>
 
