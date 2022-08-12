@@ -57,6 +57,7 @@ class gmuj_widget_highlight_list extends WP_Widget {
 
             // Output widget title, if it is not empty
             if (!empty($instance['title'])) {
+                echo PHP_EOL;
                 echo $args['before_title'];
                 echo $instance['title'];
                 echo $args['after_title'];
@@ -64,10 +65,12 @@ class gmuj_widget_highlight_list extends WP_Widget {
 
             // Output widget sub-title, if it is not empty
             if (!empty($instance['title_sub'])) {
+                echo PHP_EOL;
                 echo '<p class="widget-title-sub">'.$instance['title_sub'].'</p>';
             }
 
             // Begin grid container (to hold the highlight list items)
+            echo PHP_EOL;
             echo "<div class='widget_gmuj_widget_display_list_grid_container";
             if ($instance['size']=='small') {
                 echo " smalltiles";
@@ -78,6 +81,7 @@ class gmuj_widget_highlight_list extends WP_Widget {
             for ($i = 1; $i <= $count; $i++) {
 
                 // Begin highlight link
+                echo PHP_EOL;
                 echo '<a class="widget_gmuj_widget_display_list_item" ';
                 echo 'href="'.$highlight_list_items['url-'.$i].'" ';
                 // Open link in new tab if specified
@@ -87,21 +91,26 @@ class gmuj_widget_highlight_list extends WP_Widget {
                 echo '>';
 
                 // Output highlight image
+                echo PHP_EOL."\t";
                 echo $this->gmuj_widget_image_render( $instance, "widget_gmuj_widget_display_list_item_image", 'image-'.$i, false);
 
                 // Output highlight title
+                echo PHP_EOL."\t";
                 echo'<h4 class="widget_gmuj_widget_display_list_item_name">'.$highlight_list_items['name-'.$i].'</h4>';
 
                 // Output highlight description
                 if (!empty($highlight_list_items['text-'.$i])){
+                    echo PHP_EOL."\t";
                     echo'<div class="widget_gmuj_widget_display_list_item_description">'.$highlight_list_items['text-'.$i].'</div>';
                 }
 
                 // End highlight link
+                echo PHP_EOL;
                 echo'</a>';
             }
 
             // End grid container
+            echo PHP_EOL;
             echo"</div>";
             ?>
 

@@ -161,6 +161,7 @@ class gmuj_widget_recent_posts extends WP_Widget {
 
                 // Output widget title, if it is not empty
                 if (!empty($instance['title'])) {
+                    echo PHP_EOL;
                     echo $args['before_title'];
                     echo $instance['title'];
                     echo $args['after_title'];
@@ -168,10 +169,12 @@ class gmuj_widget_recent_posts extends WP_Widget {
 
                 // Output widget sub-title, if it is not empty
                 if (!empty($instance['title_sub'])) {
+                    echo PHP_EOL;
                     echo '<p class="widget-title-sub">'.$instance['title_sub'].'</p>';
                 }
 
                 // Begin grid container (to hold the recent post items)
+                echo PHP_EOL;
                 ?>
                 <div class='widget_gmuj_widget_display_list_grid_container'>
 
@@ -180,9 +183,11 @@ class gmuj_widget_recent_posts extends WP_Widget {
                     while ($r->have_posts()): $r->the_post();
 
                         // Begin post link
+                        echo PHP_EOL;
                         echo'<a class="widget_gmuj_widget_display_list_item" href="'.get_permalink().'">';
 
                         // Do we have an image for this post?
+                            echo PHP_EOL."\t";
                             if (has_post_thumbnail()) {
                                 // If so, output it
                                 //the_post_thumbnail();
@@ -198,12 +203,15 @@ class gmuj_widget_recent_posts extends WP_Widget {
                             }
 
                         // Output post title
+                        echo PHP_EOL."\t";
                         echo'<h4 class="widget_gmuj_widget_display_list_item_name">'.get_the_title().'</h4>';
 
                         // Output post excerpt
+                        echo PHP_EOL."\t";
                         echo'<div class="widget_gmuj_widget_display_list_item_description">'.wp_strip_all_tags( get_the_excerpt(), true ).'</div>';
 
                         // End post link
+                        echo PHP_EOL;
                         echo'</a>';
 
                     endwhile; // End post loop
