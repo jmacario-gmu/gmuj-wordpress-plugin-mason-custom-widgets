@@ -56,6 +56,8 @@ function gmuj_load_and_register_custom_widgets() {
 		require('php/classes/gmuj_widget_regex_content.php');
         // people list
         require('php/classes/gmuj_widget_people_list.php');
+		// Regex nav menu
+		require('php/classes/gmuj_widget_regex_nav_menu.php');
 
 	// Register custom widgets
 		// Call-to-action list
@@ -74,6 +76,8 @@ function gmuj_load_and_register_custom_widgets() {
 		register_widget('gmuj_widget_regex_content');
 		// People list
 		register_widget('gmuj_widget_people_list');
+		// Regex nav menu
+		register_widget('gmuj_widget_regex_nav_menu');
 
 }
 

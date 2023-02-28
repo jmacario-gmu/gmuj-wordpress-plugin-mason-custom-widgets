@@ -1,0 +1,50 @@
+/* Mason custom widgets */
+
+/* Regex nav menu */
+
+/* Default and small screens */
+
+
+/* Style the nav menus in the sidebar */
+.gmuj-sidebar .widget_gmuj_widget_regex_nav_menu {
+	font-size: 0.9em;
+}
+
+.gmuj-sidebar .widget_gmuj_widget_regex_nav_menu li {
+	min-width: 12em;
+	background-color: #e8fff6;
+	border-bottom: none;
+}
+
+/* Nav menu links  */
+.gmuj-sidebar .widget_gmuj_widget_regex_nav_menu li a {
+	color: #007f8b;
+	font-weight: normal;
+}
+
+/* Nav menu current page */
+.gmuj-sidebar .widget_gmuj_widget_regex_nav_menu li.current_page_item > a {
+	color: #114145;
+	font-weight: bold;
+}
+
+/* but different first child LI */
+/*
+.gmuj-sidebar .widget_gmuj_widget_regex_nav_menu ul.menu > li:first-child {
+	color: white;
+	background-color: #006940;
+	position: relative;
+}
+.gmuj-sidebar .widget_gmuj_widget_regex_nav_menu ul.menu > li:first-child a {
+	color: white;
+}
+.gmuj-sidebar .widget_gmuj_widget_regex_nav_menu ul.menu > li.current_page_item:first-child > a {
+	color: white;
+}
+*/
+
+/* Nav menu sub menus */
+.gmuj-sidebar .widget_gmuj_widget_regex_nav_menu .sub-menu li {
+	margin-left: 0;
+	padding-bottom: 0;
+}
