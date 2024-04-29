@@ -84,7 +84,7 @@ class gmuj_widget_cta_list extends WP_Widget {
                 echo $cta_list_items['name-'.$i];
 
                 // Add icon
-                echo ' <span class="fa fa-chevron-circle-right"></span>';
+                echo ' <span class="fa fa-circle-arrow-right"></span>';
 
                 // End cta link
                 echo'</a>';

@@ -65,7 +65,7 @@ class gmuj_widget_cta_menu extends WP_Widget{
 						'menu' => $instance['related_menu'],
 						'menu_class' => 'cta-menu',
 						'depth'=> '1',
-						'link_after' => ' <span class="fa fa-chevron-circle-right"></span>' // Add FontAwesome right arrow after link text
+						'link_after' => ' <span class="fa fa-circle-arrow-right"></span>' // Add FontAwesome right arrow after link text
 					)
 				);
 
