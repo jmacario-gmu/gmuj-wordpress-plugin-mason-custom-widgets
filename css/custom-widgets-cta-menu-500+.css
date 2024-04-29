@@ -16,7 +16,6 @@
 /* Style calls-to-action widget menu items */
 .widget_gmuj_widget_call_to_action_menu ul li {
 	flex: 1 1 0px;
-	background-position: calc(100% + 3em) top;
 }
 
 
