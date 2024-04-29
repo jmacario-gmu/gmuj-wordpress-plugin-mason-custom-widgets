@@ -20,7 +20,7 @@ div.entry-content li.widget_gmuj_widget_call_to_action_menu p.widget-title-sub {
 /* Style calls-to-action widget menu items */
 .widget_gmuj_widget_call_to_action_menu ul li {
 	margin: 1em !important;
-	background-color: #063;
+	background-color: #005239;
 	background-image: url('/wp-content/plugins/gmuj-wordpress-plugin-mason-custom-widgets/images/logo-mason-m-193x204.png');
 	background-repeat: no-repeat;
 	background-position: calc(100% + 3em) 20%;
@@ -40,6 +40,7 @@ div.entry-content li.widget_gmuj_widget_call_to_action_menu p.widget-title-sub {
 
 /* Style calls-to-action widget menu item link icons */
 .widget_gmuj_widget_call_to_action_menu ul li a span.fa {
+	color:#ffc733;
 	font-size:0.8em;
 	margin-left: 0.25em;
 }
