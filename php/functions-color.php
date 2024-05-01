@@ -25,16 +25,14 @@
 function gmuj_brand_colors() {
 
 	// Declare array of primary palette - signature colors
-	$colors_primary[0] = "006633";
-	$colors_primary[1] = "FFCC33";
+	$colors_primary[0] = "005239";
+	$colors_primary[1] = "ffc733";
 
 	// Declare array of secondary palette - supporting colors
-	$colors_secondary_supporting[0] = "00909E";
-	$colors_secondary_supporting[1] = "425195";
-	$colors_secondary_supporting[2] = "AC1D37";
-	$colors_secondary_supporting[3] = "81902B";
-	$colors_secondary_supporting[4] = "9D7F00";
-	$colors_secondary_supporting[5] = "F7941E";
+	$colors_secondary_supporting[0] = "cc4824";
+	$colors_secondary_supporting[1] = "008285";
+	$colors_secondary_supporting[2] = "727579";
+	$colors_secondary_supporting[3] = "004f71";
 
 	// Merge arrays
 	$brand_colors = array_merge($colors_primary,$colors_secondary_supporting);
