@@ -6,17 +6,16 @@
 /**
  * Reference:
  * 
- * Primary Palette - Signature Colors
- * 006633 Mason Green
- * FFCC33 Mason Gold
+ * Primary Colors
+ * 005239 George Mason Green
+ * ffc733 George Mason Gold
+ *
+ * Accent Colors
+ * cc4824 Red
+ * 008285 Teal
+ * 727579 Gray
+ * 004f71 Navy
  * 
- * Secondary Palette - Universial Supporting Colors
- * 00909E Dark Turquoise
- * 425195 Medium Slate Blue
- * AC1D37 Cardinal Red
- * 81902B Bright Green
- * 9D7F00 Dark Goldenrod
- * F7941E Tangerine
  */
 
 /**
