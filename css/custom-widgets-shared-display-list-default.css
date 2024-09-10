@@ -91,7 +91,7 @@ a.widget_gmuj_widget_display_list_item:hover .widget_gmuj_widget_display_list_it
     font-weight:bold;
     text-align: center;
     cursor: inherit;
-    opacity: 100;
+    /*opacity: 100;*/ /* do not restore opacity to keep this pop-up description invisible */
 }
 
 /* Style for small tiles version */
