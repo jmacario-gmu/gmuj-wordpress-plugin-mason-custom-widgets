@@ -89,12 +89,88 @@ function gmuj_custom_widgets_enqueue_styles() {
 
 	// Enqueue the plugin public stylesheets
 
+	// Enqueue the custom widgets stylesheets
+
 	// Custom widgets stylesheet
 	wp_enqueue_style(
-		'gmuj_custom_widgets', //stylesheet name
-		plugin_dir_url(__FILE__) . 'css/custom-widgets.css' //path to stylesheet
+		'gmuw_custom_widgets',
+		plugin_dir_url(__FILE__) . 'css/custom-widgets.css',
+        '',
+        time()
 	);
-	
+
+	// custom widget - alert ribbon
+	wp_enqueue_style(
+		'gmuw_custom_widgets_alert_ribbon',
+		plugin_dir_url(__FILE__) . 'css/custom-widgets-alert-ribbon.css',
+		'',
+		time()
+	);
+
+	// custom widget - calls-to-action list
+	wp_enqueue_style(
+		'gmuw_custom_widgets_cta_list',
+		plugin_dir_url(__FILE__) . 'css/custom-widgets-cta-list.css',
+		'',
+		time()
+	);
+
+	// custom widget - calls-to-action menu
+	wp_enqueue_style(
+		'gmuw_custom_widgets_cta_menu',
+		plugin_dir_url(__FILE__) . 'css/custom-widgets-cta-menu.css',
+		'',
+		time()
+	);
+
+	// custom widget - highlight item
+	wp_enqueue_style(
+		'gmuw_custom_widgets_highlight_item',
+		plugin_dir_url(__FILE__) . 'css/custom-widgets-highlight-item.css',
+		'',
+		time()
+	);
+
+	// custom widget - highlight list
+	wp_enqueue_style(
+		'gmuw_custom_widgets_highlight_list',
+		plugin_dir_url(__FILE__) . 'css/custom-widgets-highlight-list.css',
+		'',
+		time()
+	);
+
+	// custom widget - people list
+	wp_enqueue_style(
+		'gmuw_custom_widgets_people_list',
+		plugin_dir_url(__FILE__) . 'css/custom-widgets-people-list.css',
+		'',
+		time()
+	);
+
+	// custom widget - recent posts
+	wp_enqueue_style(
+		'gmuw_custom_widgets_recent_posts',
+		plugin_dir_url(__FILE__) . 'css/custom-widgets-recent-posts.css',
+		'',
+		time()
+	);
+
+	// custom widget - regex nav menu
+	wp_enqueue_style(
+		'gmuw_custom_widgets_regex_nav_menu',
+		plugin_dir_url(__FILE__) . 'css/custom-widgets-regex-nav-menu.css',
+		'',
+		time()
+	);
+
+	// custom widget - shared - display list
+	wp_enqueue_style(
+		'gmuw_custom_widgets_shared_display_list',
+		plugin_dir_url(__FILE__) . 'css/custom-widgets-shared-display-list.css',
+		'',
+		time()
+	);
+
 }
 
 /**
@@ -116,10 +192,46 @@ function gmuj_custom_widgets_enqueue_scripts() {
 add_action('admin_enqueue_scripts','gmuj_custom_widgets_enqueue_styles_admin');
 function gmuj_custom_widgets_enqueue_styles_admin() {
 
-	// Enqueue the plugin admin stylesheets
+	// enqueue the plugin admin stylesheets
+
+	// custom widgets admin
 	wp_enqueue_style(
-		'gmuj_widget_field_image_select', //stylesheet name
-		plugin_dir_url(__FILE__) . 'css/admin.css' //path to stylesheet
+		'gmuw_custom_widgets_admin',
+		plugin_dir_url(__FILE__) . 'css/admin.css',
+		'',
+		time()
+	);
+
+	// default admin styles
+	wp_enqueue_style(
+		'gmuw_custom_widgets_admin_default',
+		plugin_dir_url(__FILE__) . 'css/admin-default.css',
+		'',
+		time()
+	);
+
+	// widget image select field
+	wp_enqueue_style(
+		'gmuw_custom_widgets_admin_field_image_select',
+		plugin_dir_url(__FILE__) . 'css/admin-widget-field-image-select.css',
+		'',
+		time()
+	);
+
+	// calls-to-action list widget
+	wp_enqueue_style(
+		'gmuw_custom_widgets_admin_cta_list',
+		plugin_dir_url(__FILE__) . 'css/admin-widget-cta-list.css',
+		'',
+		time()
+	);
+
+	// highlight list widget
+	wp_enqueue_style(
+		'gmuw_custom_widgets_admin_highlight_list',
+		plugin_dir_url(__FILE__) . 'css/admin-widget-highlight-list.css',
+		'',
+		time()
 	);
 
 }

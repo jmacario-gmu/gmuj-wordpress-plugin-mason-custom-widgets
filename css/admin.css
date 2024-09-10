@@ -1,14 +1,3 @@
 /* Admin styles */
 
 
-/* Default admin styles */
-@import 'admin-default.css';
-
-/* Widget image select field */
-@import 'admin-widget-field-image-select.css';
-
-/* Calls-to-action list widget */
-@import 'admin-widget-cta-list.css';
-
-/* Highlight list widget */
-@import 'admin-widget-highlight-list.css';

@@ -1,29 +1,2 @@
 /* Mason custom widgets */
 
-
-/* Shared - display list */
-@import 'custom-widgets-shared-display-list.css';
-
-/* Calls-to-action list */
-@import 'custom-widgets-cta-list.css';
-
-/* Calls-to-action menu */
-@import 'custom-widgets-cta-menu.css';
-
-/* Highlight item */
-@import 'custom-widgets-highlight-item.css';
-
-/* Highlight list */
-@import 'custom-widgets-highlight-list.css';
-
-/* Recent posts */
-@import 'custom-widgets-recent-posts.css';
-
-/* Alert ribbon */
-@import 'custom-widgets-alert-ribbon.css';
-
-/* People list */
-@import 'custom-widgets-people-list.css';
-
-/* Regex nav menu */
-@import 'custom-widgets-regex-nav-menu.css';

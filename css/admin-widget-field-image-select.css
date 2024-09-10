@@ -3,4 +3,18 @@
 /* Widget image select field */
 
 /* Default and small screens */
-@import 'admin-widget-field-image-select-default.css';
+
+
+/* Style image select field thumbnail (preview) image wrapper */
+.widget-form-img-preview {
+    max-width: 100%; 
+    cursor: pointer;
+}
+
+/* Style image select field thumbnail (preview) image */
+.widget-form-img-preview img {
+    display: block; 
+    max-height: 150px; 
+    margin-left: auto; 
+    margin-right: auto;
+}

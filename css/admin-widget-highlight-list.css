@@ -3,4 +3,25 @@
 /* Highlight list widget */
 
 /* Default and small screens */
-@import 'admin-widget-highlight-list-default.css';
+
+
+/* Style the highlight list item count change alert message */
+.gmuj-widget-highlight-list-item-count-change-message {
+	display: none;
+	color: red; 
+}
+
+/* Style the highlight list items box */
+.gmuj-widget-highlight-list-items {
+	overflow-y: auto; 
+	max-height: 370px; 
+	border-top: 2px solid #ccd0d4; 
+	border-bottom: 2px solid #ccd0d4; 
+	padding: 10px 0;
+}
+
+/* Style the highlight list items headings */
+.gmuj-widget-highlight-list-item-heading {
+	font-size:1.2em;
+	font-weight:bold;
+}

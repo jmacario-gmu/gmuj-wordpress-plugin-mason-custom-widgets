@@ -2,11 +2,52 @@
 
 /* Highlight item */
 
-/* Default and small screens */
-@import 'custom-widgets-highlight-item-default.css';
+/*--- Default and small screens ---*/
 
-/* 500+ pixels */
-@import 'custom-widgets-highlight-item-500+.css' screen and (min-width: 500px);
+/* Style highlight item image */
+.widget_gmuj_widget_highlight_item img.highlight-item-image {
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 1em;
+}
 
-/* 700+ pixels */
-@import 'custom-widgets-highlight-item-700+.css' screen and (min-width: 700px);
+/*--- 500+ pixels ---*/
+@media screen and (min-width: 500px) {
+
+	/* Style highlight item image */
+	.widget_gmuj_widget_highlight_item img.highlight-item-image {
+	    max-width: 40%;
+	}
+
+	/* Style highlight item image, if floated right */
+	.widget_gmuj_widget_highlight_item img.highlight-item-image-right {
+	    float: right;
+	    margin-left: 1em;
+	    margin-right: 0;
+	}
+
+	/* Style highlight item image, if floated left */
+	.widget_gmuj_widget_highlight_item img.highlight-item-image-left {
+	    float: left;
+	    margin-right: 1em;
+	    margin-left: 0;
+	}
+
+}
+
+/*--- 700+ pixels ---*/
+@media screen and (min-width: 700px) {
+
+	/* Style highlight item image, if floated right */
+	.widget_gmuj_widget_highlight_item img.highlight-item-image-right {
+	    margin-left: 4em;
+	    margin-right: 1em;
+	}
+
+	/* Style highlight item image, if floated right */
+	.widget_gmuj_widget_highlight_item img.highlight-item-image-left {
+	    margin-right: 4em;
+	    margin-left: 1em;
+	}
+
+}
