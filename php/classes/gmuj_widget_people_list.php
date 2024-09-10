@@ -217,10 +217,8 @@ class gmuj_widget_people_list extends WP_Widget {
                                 the_post_thumbnail('post-thumbnail', ['class' => 'widget_gmuj_widget_display_list_item_image']);
                             } else {
                                 // If not, get the path of a default image
-                                    // First, choose a random brand color
-                                    $random_color=gmuj_random_brand_color();
-                                    // Next, generate the image file path using the random color
-                                    $image=plugins_url().'/gmuj-wordpress-plugin-mason-custom-widgets/images/mason-default-image-'.$random_color.'-640x480.png';
+                                    // generate the image file path using a random selection of the available default images
+                                    $image=plugins_url().'/gmuj-wordpress-plugin-mason-custom-widgets/images/mason-default-image-00'.rand(1,2).'-640x480.png';
                                     // Output the HTML image tag
                                     echo "<img class='widget_gmuj_widget_display_list_item_image' src='". $image. "' alt='' />";
                             }
