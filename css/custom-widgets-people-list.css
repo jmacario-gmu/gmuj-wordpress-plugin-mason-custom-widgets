@@ -7,6 +7,13 @@
 /* Make the people listing images taller */
 li.widget_gmuj_widget_people_list img.widget_gmuj_widget_display_list_item_image {height:325px}
 
+/* Style display list item name heading */
+li.widget_gmuj_widget_people_list .widget_gmuj_widget_display_list_grid_container h4.widget_gmuj_widget_display_list_item_name {
+    margin: 1.5em 0.5em 0;
+    padding-bottom: 0.5em;
+    font-size:1.2em;
+}
+
 /* Style person title heading */
 li.widget_gmuj_widget_people_list a.widget_gmuj_widget_display_list_item h4.person-title {
     min-height:2em;

@@ -40,8 +40,8 @@ a.widget_gmuj_widget_display_list_item:hover {
     object-position: center;
 }
 
-/* Style display list item name heading */
-.widget_gmuj_widget_display_list_grid_container h4.widget_gmuj_widget_display_list_item_name {
+/* Style display list item name heading (except for the people list) */
+li:not(.widget_gmuj_widget_people_list) .widget_gmuj_widget_display_list_grid_container h4.widget_gmuj_widget_display_list_item_name {
     position: absolute;
     left: 0;
     right: 0;
