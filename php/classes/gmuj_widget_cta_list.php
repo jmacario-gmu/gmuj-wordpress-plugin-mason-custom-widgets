@@ -253,13 +253,13 @@ class gmuj_widget_cta_list extends WP_Widget {
                         <!-- cta list item name -->
                         <p>
                             <label for="<?php echo $this->get_field_id('name-'.$i); ?>">Item Name:</label></br>
-                            <input class="widefat" id="<?php echo $this->get_field_id('name-'.$i); ?>" type="text" value="<?php echo $instance['name-'.$i]; ?>" name="<?php echo $this->get_field_name('name-'.$i); ?>" />
+                            <input class="widefat" id="<?php echo $this->get_field_id('name-'.$i); ?>" type="text" value="<?php echo isset($instance['name-'.$i]) ? $instance['name-'.$i] : ''; ?>" name="<?php echo $this->get_field_name('name-'.$i); ?>" />
                         </p>
 
                         <!-- cta list item link -->
                         <p>
                             <label for="<?php echo $this->get_field_id('url-'.$i); ?>">Item Link:</label>
-                            <input class="widefat" id="<?php echo $this->get_field_id('url-'.$i); ?>" name="<?php echo $this->get_field_name('url-'.$i); ?>" type="text" value="<?php echo $instance['url-'.$i]; ?>" />
+                            <input class="widefat" id="<?php echo $this->get_field_id('url-'.$i); ?>" name="<?php echo $this->get_field_name('url-'.$i); ?>" type="text" value="<?php echo isset($instance['url-'.$i]) ? $instance['url-'.$i] : ''; ?>" />
                         </p>
 
                         <!-- cta list item image -->
